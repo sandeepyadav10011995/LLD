@@ -2,14 +2,13 @@
 
 class Movie:
     def __init__(self, id: str, name: str) -> None:
-        self.id = id
-        self.name = name
+        self._id = id
+        self._name = name
+        # Other Metadata
 
     def getId(self):
-        return self.id
+        return self._id
 
     def getName(self):
-        return self.name
-
-    # Other Metadata
+        return self._name
     
