@@ -1,24 +1,25 @@
+from model.Seat import Seat
 from model.Theater import Theater
 
 
 class Screen:
     def __init__(self, id: str, name: str, theater: Theater) -> None:
-        self.id = id
-        self.name = name
-        self.theater = theater
-        self.seats = list()
+        self._id = id
+        self._name = name
+        self._theater = theater
+        self._seats = list()
 
     def getId(self):
-        return self.id
+        return self._id
 
     def getName(self):
-        return self.name
+        return self._name
 
     def getTheater(self):
-        return self.theater
+        return self._theater
 
     def getSeats(self):
-        return self.seats
+        return self._seats
 
     def addSeat(self, seat: Seat) -> None:
-        self.seats.append(seat)
+        self._seats.append(seat)
