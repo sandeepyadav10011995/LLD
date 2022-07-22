@@ -5,28 +5,28 @@ from model.Show import Show
 
 class SeatLock:
     def __init__(self, seat: Seat, show: Show, timeOutInSeconds: int, lockTime: datetime, lockBy: str) -> None:
-        self.seat = seat
-        self.show = show
-        self.timeOutInSeconds = timeOutInSeconds
-        self.lockTime = lockTime
-        self.lockBy = lockBy
+        self._seat = seat
+        self._show = show
+        self._timeOutInSeconds = timeOutInSeconds
+        self._lockTime = lockTime
+        self._lockBy = lockBy
 
     def getSeat(self):
-        return self.seat
+        return self._seat
 
     def getShow(self):
-        return self.show
+        return self._show
 
     def getTimeOutInSeconds(self):
-        return self.timeOutInSeconds
+        return self._timeOutInSeconds
 
     def getLockTime(self):
-        return self.lockTime
+        return self._lockTime
 
     def getLockBy(self):
-        return self.lockBy
+        return self._lockBy
 
     def isLockExpired(self) -> bool:
-        lock_instance = self.lockTime.time() + self.timeOutInSeconds
-        current_instance = datetime.now()
+        lock_instance = self._lockTime.second + self._timeOutInSeconds
+        current_instance = datetime.now().second
         return lock_instance < current_instance
