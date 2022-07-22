@@ -6,46 +6,49 @@ from model.Theater import Theater
 
 
 class TheaterService:
-    def __init__(self, theaters: dict, screens: dict, seats: dict):
-        self.theaters = theaters
-        self.screens = screens
-        self.seats = seats
+    def __init__(self):
+        self._theaters = dict()
+        self._screens = dict()
+        self._seats = dict()
 
     def getTheater(self, theaterId: str) -> Theater:
-        if theaterId not in self.theaters:
+        if theaterId not in self._theaters:
             pass
-        return self.theaters.get(theaterId)
+        return self._theaters.get(theaterId)
 
     def getScreen(self, screenId: str) -> Screen:
-        if screenId not in self.screens:
+        if screenId not in self._screens:
             pass
-        return self.seats.get(screenId)
+        return self._seats.get(screenId)
 
     def getSeat(self, seatId: str) -> Seat:
-        if seatId not in self.seats:
+        if seatId not in self._seats:
             pass
-        return self.seats.get(seatId)
+        return self._seats.get(seatId)
 
+    # Create the theater
     def createTheater(self, theaterName: str) -> Theater:
         theaterId = str(uuid.uuid4())
         theater = Theater(id=theaterId, name=theaterName)
-        self.theaters[theaterId] = theater
+        self._theaters[theaterId] = theater
         return theater
 
-    def createScreen(self, screenName: str, theater: Theater) -> Screen:
+    # Create the screen
+    def _createScreen(self, screenName: str, theater: Theater) -> Screen:
         screenId = str(uuid.uuid4())
         screen = Screen(id=screenId, name=screenName, theater=theater)
-        self.screens[screenId] = screen
+        self._screens[screenId] = screen
         return screen
 
+    # Create the screen for a theater
     def createScreenInTheater(self, screenName: str, theater: Theater) -> Screen:
-        screen = self.createScreen(screenName=screenName, theater=theater)
+        screen = self._createScreen(screenName=screenName, theater=theater)
         theater.addScreens(screen=screen)
         return screen
 
     def createSeatInScreen(self, rowNo: int, seatNo: int, screen: Screen) -> Seat:
         seatId = str(uuid.uuid4())
         seat = Seat(id=seatId, rowNo=rowNo, seatNo=seatNo)
-        self.seats[seatId] = seat
+        self._seats[seatId] = seat
         screen.addSeat(seat=seat)
         return seat
