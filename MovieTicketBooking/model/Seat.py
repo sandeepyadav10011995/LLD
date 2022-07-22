@@ -2,15 +2,15 @@
 
 class Seat:
     def __init__(self, id: str, rowNo: int, seatNo: int) -> None:
-        self.id = id
-        self.rowNo = rowNo
-        self.seatNo = seatNo
+        self._id = id
+        self._rowNo = rowNo
+        self._seatNo = seatNo
 
     def getId(self):
-        return self.id
+        return self._id
 
     def getRowNo(self):
-        return self.rowNo
+        return self._rowNo
 
     def getSeatNo(self):
-        return self.seatNo
+        return self._seatNo
