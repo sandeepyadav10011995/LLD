@@ -13,7 +13,7 @@ class Mode(metaclass=ABCMeta):
 
     def processCommand(self, command: Command) -> None:
         commandExecutor = self.commandExecutorFactory.getCommandExecutor(command=command)
-        if commandExecutor.validate(command=command)
+        if commandExecutor.validate(command=command):
             commandExecutor.execute(command=command)
         else:
             pass
