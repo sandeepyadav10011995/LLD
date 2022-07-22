@@ -1,4 +1,5 @@
 from OutputPrinter import OutputPrinter
+from command.CommandExecutor import CommandExecutor
 from command.CreateParkingLotCommandExecutor import CreateParkingLotCommandExecutor
 from model.Command import Command
 from service.ParkingLotService import ParkingLotService
@@ -12,8 +13,8 @@ class CommandExecutorFactory:
         self.__outputPrinter = OutputPrinter()
         self.__commands[CreateParkingLotCommandExecutor.COMMAND_NAME] = CreateParkingLotCommandExecutor(self.__parkingLotService, self.__outputPrinter)
 
-    def validate(self, command: Command) -> bool:
-        pass
-
-    def execute(self) -> None:
-        pass
+    def getCommandExecutor(self, command: Command) -> CommandExecutor:
+        commandExecutor = self.__commands.get(command.getCommandName())
+        if commandExecutor is None:
+            pass
+        return commandExecutor
