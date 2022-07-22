@@ -22,12 +22,12 @@ class InMemorySeatLockProvider(SeatLockProvider):
     def unlockSeats(self, show: Show, seats: list[Seat], user: str) -> None:
         for seat in seats:
             if self.validateLock(show, seat, user):
-                self.unlockSeats(show, seat)
+                self.unlockSeat(show, seat)
 
     def validateLock(self, show: Show, seat: Seat, user: str) -> bool:
         return self.isSeatLocked(show, seat) and self.locks.get(show).get(seat).getLockBy() == user
 
-    def getLockedSeat(self, show: Show) -> list[Seat]:
+    def getLockedSeats(self, show: Show) -> list[Seat]:
         if show not in self.locks:
             pass
 
@@ -46,8 +46,8 @@ class InMemorySeatLockProvider(SeatLockProvider):
     def lockSeat(self, show: Show, seat: Seat, user: str, timeOutInSeconds: int) -> None:
         if show not in self.locks:
             self.locks[show] = {}
-        seatLock = SeatLock(seat=seat, show=show, timeOutInSeconds=timeOutInSeconds, lockTime=datetime, lockBy=user)
+        seatLock = SeatLock(seat=seat, show=show, timeOutInSeconds=timeOutInSeconds, lockTime=datetime.now(), lockBy=user)
         self.locks[show][seat] = seatLock
 
     def isSeatLocked(self, show: Show, seat: Seat) -> bool:
-        return self.locks.get(show) and self.locks.get(show) and self.locks.get(show).get(seat).isLockExpired()
+        return self.locks.get(show) and self.locks.get(show).get(seat).isLockExpired()
