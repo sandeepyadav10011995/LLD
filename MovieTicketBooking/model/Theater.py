@@ -1,20 +1,20 @@
-from model.Screen import Screen
+from model import Screen
 
 
 class Theater:
     def __init__(self, id: str, name: str) -> None:
-        self.id = id
-        self.name = name
-        self.screens = list()
+        self._id = id
+        self._name = name
+        self._screens = list()
 
     def getId(self):
-        return self.id
+        return self._id
 
     def getName(self):
-        return self.name
+        return self._name
 
     def getScreens(self):
-        return self.screens
+        return self._screens
 
     def addScreens(self, screen: Screen):
-        self.screens.append(screen)
+        self._screens.append(screen)
