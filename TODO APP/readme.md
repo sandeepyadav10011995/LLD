@@ -77,15 +77,32 @@ Python Frameworks -:
       occasions.
 
 3. FAST API -:
-    *
-    *
-    *
-    *
+    * Fast: Very high performance, on par with NodeJS and Go (thanks to Starlette and Pydantic). One of the fastest
+            Python frameworks available.
+    * Fast to code: Increase the speed to develop features by about 200% to 300%.
+    * Fewer bugs: Reduce about 40% of human (developer) induced errors.
+    * Intuitive: Great editor support. Completion everywhere. Less time debugging.
+    * Easy: Designed to be easy to use and learn. Less time reading docs.
+    * Short: Minimize code duplication. Multiple features from each parameter declaration. Fewer bugs.
+    * Robust: Get production-ready code. With automatic interactive documentation.
+    * Standards-based: Based on (and fully compatible with) the open standards for APIs: OpenAPI (previously known as
+                       Swagger) and JSON Schema.
 
-4. SANIC -:
-    *
-    *
-    *
-    *
+4. SANIC -: Sanic is a Python 3.7+ web server and web framework that’s written to go fast. It allows the usage of the
+            async/await syntax added in Python 3.5, which makes your code non-blocking and speedy.
+    * Built in, fast web server
+    * Production ready
+    * Highly scalable
+    * ASGI compliant
+    * Simple and intuitive API design
+    * By the community, for the community
+
+
+CELERY -: 
+         * A distributed task queue allows you offload work to another process, to be handled asynchronously (once you 
+           push the work onto the queue, you don’t wait) and in parallel (you can use other cores to process the work).
+         
+         * So it basically gives you the ability to execute tasks in the background while the application continues to 
+           resolve other tasks.
 
 """
