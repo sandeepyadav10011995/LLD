@@ -15,8 +15,8 @@ What are Frameworks?
     easily maintainable web applications.
 
 
-URL Routing ===>> Input Form Handling and Validation ===>> Output Formats with Templating Engine -: HTML, XML, JSON ==>>
-Database Connection, Manipulation using ORM Mappers ===>> Web Security ===>> Session Storage and Retrieval
+        URL Routing ===>> Input Form Handling and Validation ===>> Output Formats with Templating Engine -: HTML, XML, JSON ==>>
+        Database Connection, Manipulation using ORM Mappers ===>> Web Security ===>> Session Storage and Retrieval
 
 
 Template Engine -: It allows the developers to generate a desired content types for example HTML, XML or JSON.
