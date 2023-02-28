@@ -91,5 +91,39 @@ PROGRAM VS PROCESS VS THREAD
 
 
 
+* HTTP CODES -: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+		Informational responses (100 – 199)
+		Successful responses (200 – 299)
+		Redirection messages (300 – 399)
+		Client error responses (400 – 499)
+		Server error responses (500 – 599)
+		
+* SECURITY -: https://www.okta.com/resources/whitepaper/8-ways-to-secure-your-microservices-architecture/
+		1. Make your microservices architecture secure by design
+		2. Scan for dependencies
+		3. Use HTTPS everywhere
+		4. Use access and identity tokens 
+		5. Encrypt and protect secrets
+		6. Slow down attackers
+		7. Know your cloud and cluster security
+		8. Cover your security bases
+		
+* JWT VS OAUTH -: https://stackoverflow.com/questions/39909419/what-are-the-main-differences-between-jwt-and-oauth-authentication
+
+JWT (JSON Web Tokens)- It is just a token format. JWT tokens are JSON encoded data structures contains information about issuer, subject 
+                      (claims), expiration time etc. It is signed for tamper proof and authenticity and it can be encrypted to protect the 
+		      token information using symmetric or asymmetric approach. JWT is simpler than SAML 1.1/2.0 and supported by all devices 
+		      and it is more powerful than SWT(Simple Web Token).
+
+OAuth2 - OAuth2 solve a problem that user wants to access the data using client software like browse based web apps, native mobile apps or 
+         desktop apps. OAuth2 is just for authorization, client software can be authorized to access the resources on-behalf of end user using 
+	 access token. OAuth 2.0 is protocol for authorization.
+
+OpenID Connect - OpenID Connect builds on top of OAuth2 and add authentication. OpenID Connect add some constraint to OAuth2 like UserInfo 
+                 Endpoint, ID Token, discovery and dynamic registration of OpenID Connect providers and session management. 
+		 JWT is the mandatory format for the token.
+
+CSRF protection - You don't need implement the CSRF protection if you do not store token in the browser's cookie.
+
 
 
