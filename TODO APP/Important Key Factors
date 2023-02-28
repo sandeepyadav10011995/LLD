@@ -134,3 +134,11 @@ KONG -: Kong is an open source API gateway and platform that acts as middleware 
 	  - round-robin method and a 
 	  - hash-based balancing method. 
 
+* ZooKeeper is a system that helps application developers build coordination services through its client API. 
+  ZooKeeper's client API combines components from distributed lock services, shared registers, and group messaging into a replicated centralized 
+  coordination service.
+  
+  
+  
+  
+  
