@@ -5,8 +5,8 @@ Cars24 CODING STANDARDS -: You Build It – You Run It – You Secure It – You
       poor quality code that results in very expensive maintenance over time and is so fragile that every time you add a new feature immediately 
       bugs creep in.
 
-    Some items developers might not agree with but these guidelines are based on personal experiences and many of them are borrowed from classic 
-    texts. 
+    * Some items developers might not agree with but these guidelines are based on personal experiences and many of them are borrowed from 
+      classic texts. 
 
 SERVICE DEVELOPMENT
 
