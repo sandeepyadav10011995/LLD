@@ -1,0 +1,177 @@
+Interview Questions
+
+1. find pairs for required sum - Bijnis
+2. find the total water that can be saved in matrix conbtaining height of buildings - Paytm
+3. Given an array , return it's next permutation (next big number) - Vmock
+4. Given a string find value using bodmass '100+(2+12)/14' - eval('100+(2+12)/14')
+
+
+
+
+
+Coding Questions:
+1. A stock price either decline by one or double it's value everyday. Given the stock initital price find the min. days for it to reach N Rupees - Arcesium
+2. Given an list of names containing firstname and lastname as roman number (Elizabeth IV). Return sorted list based on firstname and then lastname - Tessian
+3. Write an api to get data and print title of first N articles - Gamopedia
+4. # - Trademo
+5. https://leetcode.com/problems/search-insert-position/ - StashFin
+6. https://leetcode.com/problems/spiral-matrix/ - StashFin
+7. https://leetcode.com/problems/zigzag-conversion/ - StashFin
+8. https://leetcode.com/discuss/interview-question/1404717/navi-oa-dynamic-programming
+9. Print Pyramid - tantronic
+10. given a number n return no. if time it's factorial can be divided by 2 - Sugarbox network
+11. Given a stream of number return the rank of the stram
+12. https://www.geeksforgeeks.org/given-an-array-of-numbers-arrange-the-numbers-to-form-the-biggest-number/ - Trademo
+13. given a sentence containing space and two words w1 and w2,.. Find minimun distance between two words in terms of words -Genpact
+14. Maxisum sum of subarray of length k - Genpact
+15. find if a pivit point is possible in array such that sum of all elements in left side is equal to sum of all in right side - Cervello
+16. Splitwise - Dunzo
+    1) Without simplification,
+       - print for each person, how much he owes total amount
+       - for each person, print to whom this person owes and how much 
+    2) With simplification, 
+       - print for each person, how much he owes total amount
+       - for each person, print to whom this person owes and how much 
+17. Given cost of choosing red line and bus line in seperate array between cities, find minium cost to reach all cities given that switching or starting from blue line takes extra blueCost- Oracle
+18. https://nataliekung.gitbook.io/ladder_code/twitter-oa/parking-dilemma - Oracle
+19. https://www.geeksforgeeks.org/minimum-number-of-distinct-elements-after-removing-m-items/ - Oracle
+20. https://www.apdaga.com/2021/08/hackerrank-python-question-bitmasking-solution-by-apdaga.html?m=1 - Crewscale
+21. https://stackoverflow.com/questions/31113993/maximum-subarray-sum-modulo-m - Crewscale
+22. Minimum time required to transport all the boxes from source to the destination under the given constraints - Piramal
+		input : 
+		boxes [] = {7,6,5,4,3,2,1}
+		truck [] = {10,6,3}
+		fwdTime : 7
+		returnTime : 1
+23. Print a number from a list randomly till all the numbers are printed and no number should be reprinted in 0(n) - Risckovery 
+	  sol - choose random number, dn swap the number to starting and hence from now on ur search array will be smaller
+24. Write Decorator - RazorThink
+25. https://www.youtube.com/watch?v=ftt7eIC1YCU&ab_channel=pythonpundir
+26. SUm of two binary string (diff len possible) - Oracle
+27. https://programs.programmingoneonone.com/2021/08/leetcode-sort-colors-problem-solution.html?m=1 Xperi
+28. https://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/ Xperi
+29. Find peak or valley in a given array - Xperi
+30. Find all regions in 2d Matrix - Xperi
+31. Find longest increasing subsequence (not needed to be contiguos) - AVIZVA
+32. https://medium.com/beyond-programming/alaaddin-and-his-carpet-algorithm-problem-of-the-week-i-8b4e39cc13bb - Licious
+33. https://leetcode.com/problems/maximum-earnings-from-taxi/discuss/1500548/Without-using-n-86-speed - Licious
+34. Given two array of paths with points, find the maximum points you can collect (changing a path will pose -2 points penalty) - Microsoft
+35. Topological Sort - Microsoft
+
+
+SYstem Design -
+1. Design Twitter recommendation
+2. Given a monolithic app, do design changes to incorporate the ML Engine and it's model
+3. Sharding - Data divide into multiple DB (equal distribution but maintaiance could be an issue when introducing new db server so we use 
+   consistent hashing rather than a simple mod.
+4. SQL Joins are expensive (could use nosql if permits)
+5. NoSQL has built for sharding already, but for SQL you need to define alag se
+6. Trade off b/w Consistency vs Availibility (Twitter/ fb choose Availibility where as Banking uses Consistency) in case of data replication b/w 
+   several db nodes of replicas
+7. To maintain consistentcy b/w db nodes - 3 Phase commit is better (Prepare, Pre Commit, Commit), so if orchestrator (master)dies, a node will 
+   check of any other node is in pre commit phase, otherwise the commit will br aborted
+8. Kafka is industry standard for queue - Have high throughput (more number of msg can be passed fastly)
+9. Pub Sub Model benefits - Consumer can operate by it's capacity (leaky bucket algo - flash sale), Event Driven
+10. Rate Limiting - Limiting no. of request per user for a specific time
+11. Timeline Generation - Hybrid Model 
+	  Push - for normal users (not many followers) - push (append) their tweets to their follower's timeline data
+	  Pull - for celebrities (many followers) - place the tweet in cache too and whenever a follower open's timeline we'll pull data from cache too 
+           plus it's timeline data
+12. 80-20 rule - 20% request bring 80% of traffic so we'll put that data in cache
+13. LRU Cache - Remove the least recently used one to put new data in cache
+14 CDN
+15. Any Nearby Usecase - ola, swiggy, nearbuy, etc - We use Google's S2 API
+	  Google Maps has divided whole world into cells/tiles and with each zoom level you can see 2**(zoom_level*2) tiles . So you need to pass the 
+    user location , zoom level and radius to S2 to get all the nearby data (cell IDs) - it has total 21 zoom levels
+16. Master Slave Architectue - Master will handle writes, slave will handle reads
+17. Gossip Protocol - DB servers (sharded) tell each other the range of data they are storing through this (Used in Uber)
+18. Bloom Filter - to check if any data is preexisted in DB (used in web crawler to see if we have saved a URL or to check whether we have that 
+    name as username in DB) - Apply multiple hashing to a string and for each hash value make true a bit in the array https://youtu.be/XbXL9ijDJpo?t=2708
+19. HTTP Long Polling is a technique used to push information to a client as soon as possible on the server. ... 
+    In Long Polling, the server does not close the connection once it receives a request from the client. Instead, the server responds only if 
+    any new message is available or if a timeout threshold is reached.
+20. Web Sockets - Persistent and dedicated connection and bidirectional comm (for chat system, gaming, stocks)
+21. XMPP - Extensible Messaging and Presence Protocol is an open communication protocol designed for instant messaging, presence information, and 
+           contact list maintenance. Based on XML, it enables the near-real-time exchange of structured data between two or more network entities 
+           (for chats) (in python u can install ejabberd)
+22. Estimation - 300k words in english dictionary
+				- Modern Server can store  1 TB
+				- Modern Server can handle 50k web socket connections at a time
+23. Collapsed forwarding - Proxies can combine the same data access requests into one request and then return the result to the user; 
+    this technique is called collapsed forwarding. Consider a request for the same data across several nodes, but the data is not in cache. 
+    By routing these requests through the proxy, they can be consolidated into one so that we will only read data from the disk once.
+24. forward proxy -  hides the identity of the client
+25. reverse proxy - conceals the identity of the server
+26. CAP theorem  - states that it is impossible for a distributed system to simultaneously provide all three of the following desirable properties 
+    Consistency ( C ), Availability ( A ), Partition tolerance ( P ), any distributed system needs to pick two out of the three properties
+27. Partition tolerance ( P ): A partition is a communication break (or a network failure) between any two nodes in the system, i.e., both nodes 
+    are up but cannot communicate with each other. A partition-tolerant system continues to operate even if there are partitions in the system. 
+    Such a system can sustain any network failure that does not result in the failure of the entire network. Data is sufficiently replicated 
+    across combinations of nodes and networks to keep the system up through intermittent outages.
+28. The PACELC theorem states that in a system that replicates data:
+	  if there is a partition (‘P’), a distributed system can tradeoff between availability and consistency (i.e., ‘A’ and ‘C’);
+	  else (‘E’), when the system is running normally in the absence of partitions, the system can tradeoff between latency (‘L’) and consistency (‘C’).
+29. MongoDB -  in the case of a network partition, MongoDB chooses availability, but otherwise guarantees consistency
+30. Server-Sent Events (SSEs) - Under SSEs the client establishes a persistent and long-term connection with the server. The server uses this 
+    connection to send data to a client. If the client wants to send data to the server, it would require the use of another technology/protocol 
+    to do so . SSEs are best when we need real-time traffic from the server to the client or if the server is generating data in a loop and will 
+    be sending multiple events to the client.
+31. Quorum - In a distributed environment, a quorum is the minimum number of servers on which a distributed operation needs to be performed 
+    successfully before declaring the operation’s overall success. 
+	  What value should we choose for a quorum? --> More than half of the number of nodes in the cluster
+32. Master - Slave -  Problem - using quorum can lead to another problem, that is, lower availability; at any time, the system needs to ensure 
+    that at least a majority of replicas are up and available, otherwise the operation will fail. Quorum is also not sufficient, as in certain 
+    failure scenarios, the client can still see inconsistent data.
+	  Solution by master-slave - Allow only a single server (called leader) to be responsible for data replication and to coordinate work.
+33. Design a Logging Engine - Microsoft - 2nd Round
+34. Design a Chess System - LLD - Microsoft - 2nd Round
+35. Design a auto complete suggestion service - Microsoft - 3rd Round
+36. Given an input of Bolts and Nuts Object array. You need to find the matching pairs. There is no way to identify b/w bolts or b/w nuts. You 
+   can only compare by using a black box compare function which returns 'Fitting', 'bigger' or 'smaller' - Microsoft 4th Round
+
+
+
+
+
+
+
+
+Tech Questions:-
+1. pointers in python
+2. Multi threading in python
+3. Global Interpreter Lock (GIL) prevents the threads from running simultaneously.
+4. Map vs reduce vs filter
+5, https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+6. https://www.okta.com/resources/whitepaper/8-ways-to-secure-your-microservices-architecture/
+7. https://stackoverflow.com/questions/39909419/what-are-the-main-differences-between-jwt-and-oauth-authentication
+8. https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design#:~:text=SOLID%20is%20an%20acronym%20for,OOD)%20principles%20by%20Robert%20C.&text=O%20%2D%20Open%2Dclosed%20Principle,I%20%2D%20Interface%20Segregation%20Principle
+9. Python is not OOP language since you can access private elements(starts with __ ) by obj._className__privateElementName
+10. In Diamind inheritance . python does DFS but if u wanna do BFS , inherit the base class though object e.g. class A (object) . This happens 
+    using MRO https://www.youtube.com/watch?v=SvOZdxPnBto&ab_channel=pythonpundir
+11. Delegation  https://www.youtube.com/watch?v=xf9Hg8ylTVw&ab_channel=pythonpundir
+12. MultiThreading - https://www.youtube.com/watch?v=EgXhxj--Jew&ab_channel=pythonpundir
+13. Multiprocessing - https://www.youtube.com/watch?v=2yXeEC4n1G8&ab_channel=pythonpundir
+
+
+
+
+
+PROGRAM VS PROCESS VS THREAD
+* PROGRAM -: A program is an executable file which consists of a set of instructions to perform some task and is usually stored on the disk of 
+             your computer.
+* PROCESS -: A process is what we call a program that has been loaded into memory along with all the resources it needs to operate. It has its 
+             own memory space.
+THREAD -: A thread is the unit of execution within a process. A process can have multiple threads running as a part of it, where each thread 
+          uses the process’s memory space and shares it with other threads.
+
+# Multithreading -: It is a technique where multiple threads are spawned by a process to do different tasks, at about the same time, just one 
+                    after the other. This gives you the illusion that the threads are running in parallel, but they are actually run in a 
+                    concurrent manner. In Python, the Global Interpreter Lock (GIL) prevents the threads from running simultaneously.
+# Multiprocessing -: It is a technique where parallelism in its truest form is achieved. Multiple processes are run across multiple CPU cores, 
+                     which do not share the resources among them. Each process can have many threads running in its own memory space. 
+                     In Python, each process has its own instance of Python interpreter doing the job of executing the instructions.
+
+
+
+
+
