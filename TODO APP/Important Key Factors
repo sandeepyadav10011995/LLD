@@ -1,60 +1,74 @@
-3. Sharding - Data divide into multiple DB (equal distribution but maintaiance could be an issue when introducing new db server so we use 
-   consistent hashing rather than a simple mod.
-4. SQL Joins are expensive (could use nosql if permits)
-5. NoSQL has built for sharding already, but for SQL you need to define alag se
-6. Trade off b/w Consistency vs Availibility (Twitter/ fb choose Availibility where as Banking uses Consistency) in case of data replication b/w 
+* SHARDING -: Data divide into multiple DB (equal distribution but maintaiance could be an issue when introducing new db server so we use 
+              consistent hashing rather than a simple mod.
+
+* SQL Joins are expensive (could use nosql if permits)
+* NoSQL has built for sharding already, but for SQL you need to define alag se
+* Trade off b/w Consistency vs Availibility (Twitter/ fb choose Availibility where as Banking uses Consistency) in case of data replication b/w 
    several db nodes of replicas
-7. To maintain consistentcy b/w db nodes - 3 Phase commit is better (Prepare, Pre Commit, Commit), so if orchestrator (master)dies, a node will 
-   check of any other node is in pre commit phase, otherwise the commit will br aborted
-8. Kafka is industry standard for queue - Have high throughput (more number of msg can be passed fastly)
-9. Pub Sub Model benefits - Consumer can operate by it's capacity (leaky bucket algo - flash sale), Event Driven
-10. Rate Limiting - Limiting no. of request per user for a specific time
-11. Timeline Generation - Hybrid Model 
-	  Push - for normal users (not many followers) - push (append) their tweets to their follower's timeline data
-	  Pull - for celebrities (many followers) - place the tweet in cache too and whenever a follower open's timeline we'll pull data from cache too 
-           plus it's timeline data
-12. 80-20 rule - 20% request bring 80% of traffic so we'll put that data in cache
-13. LRU Cache - Remove the least recently used one to put new data in cache
-15. Any Nearby Usecase - ola, swiggy, nearbuy, etc - We use Google's S2 API
-	  Google Maps has divided whole world into cells/tiles and with each zoom level you can see 2**(zoom_level*2) tiles . So you need to pass the 
+* To maintain consistentcy b/w db nodes - 3 Phase commit is better (Prepare, Pre Commit, Commit), so if orchestrator (master)dies, a node will 
+  check of any other node is in pre commit phase, otherwise the commit will br aborted
+
+* Kafka is industry standard for queue - Have high throughput (more number of msg can be passed fastly)
+* Pub Sub Model benefits - Consumer can operate by it's capacity (leaky bucket algo - flash sale), Event Driven
+
+* Rate Limiting - Limiting no. of request per user for a specific time
+
+
+* Timeline Generation - Hybrid Model 
+	Push - for normal users (not many followers) - push (append) their tweets to their follower's timeline data
+	Pull - for celebrities (many followers) - place the tweet in cache too and whenever a follower open's timeline we'll pull data from 
+	       cache too plus it's timeline data
+
+* 80-20 rule - 20% request bring 80% of traffic so we'll put that data in cache
+* LRU Cache - Remove the least recently used one to put new data in cache
+
+* Any Nearby Usecase - ola, swiggy, nearbuy, etc - We use Google's S2 API
+    Google Maps has divided whole world into cells/tiles and with each zoom level you can see 2**(zoom_level*2) tiles . So you need to pass the 
     user location , zoom level and radius to S2 to get all the nearby data (cell IDs) - it has total 21 zoom levels
-16. Master Slave Architectue - Master will handle writes, slave will handle reads
-17. Gossip Protocol - DB servers (sharded) tell each other the range of data they are storing through this (Used in Uber)
-18. Bloom Filter - to check if any data is preexisted in DB (used in web crawler to see if we have saved a URL or to check whether we have that 
+
+* Master Slave Architectue - Master will handle writes, slave will handle reads
+* Gossip Protocol - DB servers (sharded) tell each other the range of data they are storing through this (Used in Uber)
+
+
+* Bloom Filter - to check if any data is preexisted in DB (used in web crawler to see if we have saved a URL or to check whether we have that 
     name as username in DB) - Apply multiple hashing to a string and for each hash value make true a bit in the array https://youtu.be/XbXL9ijDJpo?t=2708
-19. HTTP Long Polling is a technique used to push information to a client as soon as possible on the server. ... 
+
+
+* HTTP Long Polling is a technique used to push information to a client as soon as possible on the server. ... 
     In Long Polling, the server does not close the connection once it receives a request from the client. Instead, the server responds only if 
     any new message is available or if a timeout threshold is reached.
-20. Web Sockets - Persistent and dedicated connection and bidirectional comm (for chat system, gaming, stocks)
-21. XMPP - Extensible Messaging and Presence Protocol is an open communication protocol designed for instant messaging, presence information, and 
-           contact list maintenance. Based on XML, it enables the near-real-time exchange of structured data between two or more network entities 
-           (for chats) (in python u can install ejabberd)
-22. Estimation - 300k words in english dictionary
-				- Modern Server can store  1 TB
-				- Modern Server can handle 50k web socket connections at a time
-23. Collapsed forwarding - Proxies can combine the same data access requests into one request and then return the result to the user; 
+* Web Sockets - Persistent and dedicated connection and bidirectional comm (for chat system, gaming, stocks)
+* XMPP - Extensible Messaging and Presence Protocol is an open communication protocol designed for instant messaging, presence information, and 
+         contact list maintenance. Based on XML, it enables the near-real-time exchange of structured data between two or more network entities 
+         (for chats) (in python u can install ejabberd)
+	 
+	 
+* Collapsed forwarding - Proxies can combine the same data access requests into one request and then return the result to the user; 
     this technique is called collapsed forwarding. Consider a request for the same data across several nodes, but the data is not in cache. 
     By routing these requests through the proxy, they can be consolidated into one so that we will only read data from the disk once.
-24. forward proxy -  hides the identity of the client
-25. reverse proxy - conceals the identity of the server
-26. CAP theorem  - states that it is impossible for a distributed system to simultaneously provide all three of the following desirable properties 
+* forward proxy -  hides the identity of the client
+* everse proxy - conceals the identity of the server
+
+* CAP theorem  - states that it is impossible for a distributed system to simultaneously provide all three of the following desirable properties 
     Consistency ( C ), Availability ( A ), Partition tolerance ( P ), any distributed system needs to pick two out of the three properties
-27. Partition tolerance ( P ): A partition is a communication break (or a network failure) between any two nodes in the system, i.e., both nodes 
+* Partition tolerance ( P ): A partition is a communication break (or a network failure) between any two nodes in the system, i.e., both nodes 
     are up but cannot communicate with each other. A partition-tolerant system continues to operate even if there are partitions in the system. 
     Such a system can sustain any network failure that does not result in the failure of the entire network. Data is sufficiently replicated 
     across combinations of nodes and networks to keep the system up through intermittent outages.
-28. The PACELC theorem states that in a system that replicates data:
-	  if there is a partition (‘P’), a distributed system can tradeoff between availability and consistency (i.e., ‘A’ and ‘C’);
-	  else (‘E’), when the system is running normally in the absence of partitions, the system can tradeoff between latency (‘L’) and consistency (‘C’).
-29. MongoDB -  in the case of a network partition, MongoDB chooses availability, but otherwise guarantees consistency
-30. Server-Sent Events (SSEs) - Under SSEs the client establishes a persistent and long-term connection with the server. The server uses this 
+* The PACELC theorem states that in a system that replicates data:
+      if there is a partition (‘P’), a distributed system can tradeoff between availability and consistency (i.e., ‘A’ and ‘C’);
+      else (‘E’), when the system is running normally in the absence of partitions, the system can tradeoff between latency (‘L’) and consistency (‘C’).
+
+* MongoDB -  in the case of a network partition, MongoDB chooses availability, but otherwise guarantees consistency
+
+* Server-Sent Events (SSEs) - Under SSEs the client establishes a persistent and long-term connection with the server. The server uses this 
     connection to send data to a client. If the client wants to send data to the server, it would require the use of another technology/protocol 
     to do so . SSEs are best when we need real-time traffic from the server to the client or if the server is generating data in a loop and will 
     be sending multiple events to the client.
-31. Quorum - In a distributed environment, a quorum is the minimum number of servers on which a distributed operation needs to be performed 
+* Quorum - In a distributed environment, a quorum is the minimum number of servers on which a distributed operation needs to be performed 
     successfully before declaring the operation’s overall success. 
 	  What value should we choose for a quorum? --> More than half of the number of nodes in the cluster
-32. Master - Slave -  Problem - using quorum can lead to another problem, that is, lower availability; at any time, the system needs to ensure 
+* Master - Slave -  Problem - using quorum can lead to another problem, that is, lower availability; at any time, the system needs to ensure 
     that at least a majority of replicas are up and available, otherwise the operation will fail. Quorum is also not sufficient, as in certain 
     failure scenarios, the client can still see inconsistent data.
 	  Solution by master-slave - Allow only a single server (called leader) to be responsible for data replication and to coordinate work.
@@ -65,7 +79,7 @@ PROGRAM VS PROCESS VS THREAD
              your computer.
 * PROCESS -: A process is what we call a program that has been loaded into memory along with all the resources it needs to operate. It has its 
              own memory space.
-THREAD -: A thread is the unit of execution within a process. A process can have multiple threads running as a part of it, where each thread 
+* THREAD -: A thread is the unit of execution within a process. A process can have multiple threads running as a part of it, where each thread 
           uses the process’s memory space and shares it with other threads.
 
 # Multithreading -: It is a technique where multiple threads are spawned by a process to do different tasks, at about the same time, just one 
