@@ -9,7 +9,7 @@ Cars24 CODING STANDARDS -: You Build It – You Run It – You Secure It – You
 
 SERVICE DEVELOPMENT
 
-GENERAL CODING GUIDELINES
+# GENERAL CODING GUIDELINES
 
 These are general predefined standards for developing code.
     * Naming Conventions should be descriptive (Variable as well as functions).
