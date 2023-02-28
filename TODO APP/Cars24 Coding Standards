@@ -1,8 +1,12 @@
 Cars24 CODING STANDARDS -: You Build It – You Run It – You Secure It – You Monitor it
 
-    Coding guidelines are an extremely important part of a professional developer’s day to day practices. Following these guidelines distinguishes one as an experienced developer as opposed to a rookie. It’s ironic that so many companies still ignore them and produce poor quality code that results in very expensive maintenance over time and is so fragile that every time you add a new feature immediately bugs creep in.
+    Coding guidelines are an extremely important part of a professional developer’s day to day practices. Following these guidelines 
+    distinguishes one as an experienced developer as opposed to a rookie. It’s ironic that so many companies still ignore them and produce 
+    poor quality code that results in very expensive maintenance over time and is so fragile that every time you add a new feature immediately 
+    bugs creep in.
 
-    Some items developers might not agree with but these guidelines are based on personal experiences and many of them are borrowed from classic texts. 
+    Some items developers might not agree with but these guidelines are based on personal experiences and many of them are borrowed from classic 
+    texts. 
 
 SERVICE DEVELOPMENT
 
@@ -13,29 +17,39 @@ These are general predefined standards for developing code.
     Prevent the use of Boxed types such as Integer, Long unless there is a need to compare with null.
     Your application must have separate static and dynamic parts.
     No Hard Coding. Find an appropriate place where you can define constants or enums.
-    Prefer simplicity over complexity. If your code is turning out to be very complex most likely you are doing something wrong. As the saying goes it’s “hard to build simple things”.
-    Avoid premature optimization. Define premature optimization for your own use case. Well, it sounds awkward. Only experience can tell you what does this really mean.
+    Prefer simplicity over complexity. If your code is turning out to be very complex most likely you are doing something wrong. As the saying 
+    goes it’s “hard to build simple things”.
+    Avoid premature optimization. Define premature optimization for your own use case. Well, it sounds awkward. Only experience can tell you 
+    what does this really mean.
     Always look for the possibility of following a standard Design Pattern. Read the GOF book or go to https://springframework.guru/gang-of-four-design-patterns/
     Strictly prohibit repetitive code. If code is repeating it’s a candidate for refactoring. You should write this code in a separate function.
     Always align your code properly before committing code. Every IDE has a shortcut so that should be used before checking in code.
     Use property spring.appilication.name to give a descriptive name to your application.
-    Application properties should not contain any infra details. Any infra related property should be injected during deployment times by DEVOPS scripts.
-    Hierarchy to be used in properties files so that the same properties are not being repeated at multiple places. For example, if there is a same property across different environments then this property should be declared in the application.
+    Application properties should not contain any infra details. Any infra related property should be injected during deployment times by DEVOPS 
+    scripts.
+    Hierarchy to be used in properties files so that the same properties are not being repeated at multiple places. For example, if there is a 
+    same property across different environments then this property should be declared in the application.
     Swagger or actuator must not be included in any service
-    Use a config class to map application properties and use this to get any property value by autowiring this class instead of creating a variable in each class for each property.
-    ConfigurationProperties – for mapping properties of a specific feature with a class for better maintainability at the code level. For reference, see SmsProperties.java in DMS
+    Use a config class to map application properties and use this to get any property value by autowiring this class instead of creating a 
+    variable in each class for each property.
+    ConfigurationProperties – for mapping properties of a specific feature with a class for better maintainability at the code level. For 
+    reference, see SmsProperties.java in DMS
     Standard library/framework we use for different purposes : 
     Jackson for JSON parsing
     Log back implementing slf4j facade to be used for logging
-    Standard Naming convention to be followed, Avoid data structures types in naming conventions e.g. there is no need to explicitly put Map in a variable name like pendingFromDateMap. It can be inferred from the object type itself.
+    Standard Naming convention to be followed, Avoid data structures types in naming conventions e.g. there is no need to explicitly put Map in 
+    a variable name like pendingFromDateMap. It can be inferred from the object type itself.
     Do not write Complex Logic inside switch statements. Write new functions and call them in the switch block
 MICROSERVICES
-    Calling different services in a microservices environment is pretty common and it may lead to some complex and unexpected behavior. That is why one should always assume something will go wrong with the external system and design the system accordingly. 
+    Calling different services in a microservices environment is pretty common and it may lead to some complex and unexpected behavior. That is 
+    why one should always assume something will go wrong with the external system and design the system accordingly. 
 
-    Use SimpleClientHttpRequestFactory to configure the connect and read timeout settings for RestTemplate. In case connection pooling is also needed then use HttpComponentsClientHttpRequestFactory.
+    Use SimpleClientHttpRequestFactory to configure the connect and read timeout settings for RestTemplate. In case connection pooling is also 
+    needed then use HttpComponentsClientHttpRequestFactory.
     Use any fault tolerance library for latency and fault-tolerant scenarios. eg. Netflix Hystrix, Resilience4j 
     Retry logic has to be at the consumer/client side.
-    CLASS DESIGN
+
+CLASS DESIGN
     Class should not be more than 600 lines.
     Constructor should not have any complex logic and has to be exception-safe.
     Prefer composition over inheritance.
@@ -44,12 +58,14 @@ MICROSERVICES
     If in Object Oriented language always define an interface.
     Avoid circular dependency.
     Follow Design Patterns – https://springframework.guru/gang-of-four-design-patterns/
+
 UNIT TESTING
     Writing unit test case makes your code much more robust.
     The following Framework should be used
     JUnit 5
     Mockito
     AssertJ
+
 COMMENTS AND ERROR MESSAGES
     Write comments at all critical places in your code including variable name, their usage, function signature (input/output/parameters).
     During commit its mandatory to mention Jira Id in your commit message. 
@@ -57,17 +73,19 @@ COMMENTS AND ERROR MESSAGES
     Add Name and EMail as your signature and best to use IDE shortcut for the same.
 
 IF/ELSE STATEMENTS
-
     Do not write deep nested if-else statements.
     If nesting is getting deeper break your code into multiple functions.
-    Operator precedence for your language can introduce nasty bugs in your code which are extremely hard to debug. Follow a policy of using parentheses while writing if-else conditions.
+    Operator precedence for your language can introduce nasty bugs in your code which are extremely hard to debug. Follow a policy of using 
+    parentheses while writing if-else conditions.
     if (a == b and b != c) 
     if ( (a == b) and (b != c) ) 
+
 IMPLEMENT OOPS
     It is recommended to implement OOPS in your code as much as possible.
     Program to an interface (contract), not class. Do not change the interface as much as possible.
     Try to make an abstract class for a business service (in case of python/C++, an interface in case of Java).
     Follow DRY Principle (Don’t repeat yourself). Use Design Patterns to promote code reusability
+
 JAVA BEST PRACTICES
     Always use parentheses around conditions to avoid production nasty bugs.
     Use interface when declaring collection variable like Map<String,Object> map = new HashMap<String,Object>();
@@ -77,6 +95,7 @@ JAVA BEST PRACTICES
     Use java.time package when dealing with deals https://www.programcreek.com/java-api-examples/index.php?api=org.joda.time.format.DateTimeFormatterBuilder
     Use the same timezone everywhere in the application.
     NativeQuery also takes class as a parameter so try using this overload…https://vladmihalcea.com/the-jpa-entitymanager-createnativequery-is-a-magic-wand/
+
 FUNCTIONS
     The function should not be more than 25 lines.
     Always check for valid parameters inside public functions. Throw an exception to report an error in params.
@@ -88,28 +107,40 @@ FUNCTIONS
     If you are working with Java8 Never return null. Consider returning Optional
     Try to avoid multiple return statements. This can put nasty bugs inside programs so it’s best to avoid them as much as possible.
     Check the Big O Complexity of the algorithm you are writing. Especially for the case, where you are writing a lot of lines of code or for functions that are on a critical path.
-    Function overloading should follow convention
-
+    Function overloading should follow convention -:
     foo(int), foo(int,double), foo(int, double, object) i.e. least needed parameter at the last.
-LAYERED ARCHITECTURE
-    Follow layered architecture in true spirit. Upper Layer should call into lower layers and each layer has to be designed for a specific purpose. E.g. while following MVC, Logic in views has to be related to view and all heavy lifting shall be done by the service layer.
 
-    In Layered architecture, an entity should be referenced in only one repo interface/class and it must be accessed via only the specific service.
+LAYERED ARCHITECTURE
+    Follow layered architecture in true spirit. Upper Layer should call into lower layers and each layer has to be designed for a specific 
+    purpose. E.g. while following MVC, Logic in views has to be related to view and all heavy lifting shall be done by the service layer.
+
+    In Layered architecture, an entity should be referenced in only one repo interface/class and it must be accessed via only the specific 
+    service.
 
 PACKAGE STRUCTURE AND NAMING CONVENTIONS
-    All Java Packages should start with com.cars24. Check for the specific naming convention in your stack but the topmost package has to be com.cars24.
-    Define functions in packages instead of utility. It’s common malpractice to put every seemingly useful function inside utility classes. And while writing code it becomes difficult to look into these packages. If it’s a business utility function then try to find a proper package for it rather than putting function inside utility classes. Utility classes generally shall have a function related to common tasks like String Reverse or some Math functions or maybe email format checking utility.
+    All Java Packages should start with com.cars24. Check for the specific naming convention in your stack but the topmost package has to be 
+    com.cars24.
+    Define functions in packages instead of utility. It’s common malpractice to put every seemingly useful function inside utility classes. And 
+    while writing code it becomes difficult to look into these packages. If it’s a business utility function then try to find a proper package 
+    for it rather than putting function inside utility classes. Utility classes generally shall have a function related to common tasks like 
+    String Reverse or some Math functions or maybe email format checking utility.
     Have build profile wise property files
+
 LOGGING/TRACING
-    It is recommended to use logging, wherever possible. The purpose of the logging is to diagnose any potential issues in production. Logging is useful but it incurs significant overhead on the application so it must be used wisely and only information required shall be logged.
-    Logging should not be cluttered, it must follow the same consistent pattern across the application. Identify a pattern for logging for your specific use case
-    While logging, make sure to log needful information for debugging purposes. Logging like log.info(“Some simple text“) does not help at all, adding some field param along with this would be helpful to know for which request this info is logged.
+    It is recommended to use logging, wherever possible. The purpose of the logging is to diagnose any potential issues in production. Logging is 
+    useful but it incurs significant overhead on the application so it must be used wisely and only information required shall be logged.
+    Logging should not be cluttered, it must follow the same consistent pattern across the application. Identify a pattern for logging for your 
+    specific use case
+    While logging, make sure to log needful information for debugging purposes. Logging like log.info(“Some simple text“) does not help at all, 
+    adding some field param along with this would be helpful to know for which request this info is logged.
     Logging libraries are incredibly useful. Use their package level capabilities to switch on/off selective logging at different levels.
     Log back is one of the most widely used logging frameworks in the Java Community. For more understanding, please go through the Logback Guide.
+
 EXCEPTION HANDLING
     Do not suppress exceptions. Which means do not write exception handler which does nothing
     Try {} catch (Exception ex) { // Do nothing}
-    If an exception is explicitly raised in a function then it should not be handled in that same function. Create a separate function to handle exceptions and process.
+    If an exception is explicitly raised in a function then it should not be handled in that same function. Create a separate function to handle 
+    exceptions and process.
     Do not suppress original exception even if you have to create a new exception
     Try to use already available functions in logging libraries.
     Comment on bypassing function i.e if we are passing any exception then mention in a comment why we are doing this.
@@ -119,6 +150,7 @@ EXCEPTION HANDLING
     If you have to rethrow exception make sure you don’t lose original stack trace
     catch(Exception ex) { throw new C2CCustomException(C2CExceptionCodes.UNABLE_TO_VERIFY_PHONE);}WRONG
     catch(Exception ex) { throw new C2CCustomException(C2CExceptionCodes.UNABLE_TO_VERIFY_PHONE,e);}- RIGHT
+
 WEB PROGRAMMING
     Always follow MVC pattern
     Do not bloat your controllers by writing too much code
@@ -128,13 +160,17 @@ WEB PROGRAMMING
     Follow RESTful standards. No verbs in URLs. Same URL for all operations on a resource and must differ only via the type of mapping such as GET/POST/PUT/DELETE
     Make your URLs simple and easily understandable by the end-user and no verb, please. URL should represent states.
     “/admin/orderhistory” should be changed to  “/admin/order/history”
+
 SPRING BEST PRACTICES
     Always Follow Builder pattern for response entity
     For Cross-Cutting Patterns use AOP
     Don’t ever Autowire ObjectMapper
     @Autowired private ObjectMapper objectMapper
+
 DATABASE BEST PRACTICES
-    Over the period as application scales database will mostly likely become the biggest bottleneck. A Programmer must know how to best utilise database capabilities to get optimum performance out of applications. While writing queries make sure you analyze them for performance. Use explain frequently
+    Over the period as application scales database will mostly likely become the biggest bottleneck. A Programmer must know how to best utilise 
+    database capabilities to get optimum performance out of applications. While writing queries make sure you analyze them for performance. Use 
+    explain frequently
     Make sure to use an Index on db columns basis in which your business read operations are happening.
     Across all tables use createdAt and updatedAt fields
     Security Practices
@@ -152,48 +188,44 @@ DATABASE BEST PRACTICES
 
     https://www.upguard.com/articles/top-10-java-vulnerabilities-and-how-to-fix-them
     Sonar Cube provides a report of security vulnerabilities. You must go through all of them and fix them.
+
 RELEASING THE SOFTWARE
     All Java services should follow the microservices architecture and be packaged as Fat Jar.
     Docker is used to deploying the software.
     Maven Project Naming & Versioning 
-
     GroupId : com.cars24 (always)
-
     ArtifactId : name of your service (must be matched with the repository name
-
     Version 
-
     Dependencies conventions
-
         Dependencies should be used with release version only and version should be explicitly mentioned
         The version used of different dependencies should be declared in the properties tag
         Avoid cyclic dependencies
         Artifacts specified in the <dependencies> section will ALWAYS be included as a dependency of the child module(s).
         Artifacts specified in the <dependencyManagement> section will only be included in the child module if they were also specified in the <dependencies> section of the child module itself. You specify the version and/or scope in the parent, and you can leave them out when specifying the dependencies in the child POM. This can help you use unified versions for dependencies for child modules, without specifying the version in each child module.
-REST BEST PRACTICES
 
+REST BEST PRACTICES
     No need for redundant phrases inside api url — @PostMapping(“/addappversion”) here add has no relevance as POST is CREATE
     POST means create a resource, PUT means update, GET means read
     File IO
-
     Use non-blocking APIs of Java instead of synchronous APIS. use java.nio package
     Dates
+        java.util.Date is extremely buggy. Please don’t use it for dealing with Date and Time. Instead, rely on java.time apis
+        Use Instant class for the current time
 
-    java.util.Date is extremely buggy. Please don’t use it for dealing with Date and Time. Instead, rely on java.time apis
-    Use Instant class for the current time
 PERFORMANCE BEST PRACTICES
-
     Always find out bottlenecks in your code by doing local load testing
-    Before an API is released basic load testing using one of these tools must be done on your local machine. It will give you a good enough idea about how your application behaves under load. 
-    Apache Bench
-    Siege 
-    giltene/wrk2
-    JMeter
-    JMeter’s UI is very heavy and it can choke your machine so try using apache bench
-    Database operations are the primary reasons for bottlenecks 90% of the time as IO is inherently slower. You must calculate how many times these operations will be done and at what rate. Assume the worst-case scenario and take a safety factor of 2 and then design your solutions.
-    Do not assume that the best of the hardware is available so do performance testing in a way that it can run on the lower configuration of RAM and CPU
+    Before an API is released basic load testing using one of these tools must be done on your local machine. It will give you a good enough idea 
+    about how your application behaves under load. 
+        Apache Bench
+        Siege 
+        giltene/wrk2
+        JMeter -: JMeter’s UI is very heavy and it can choke your machine so try using apache bench
+    Database operations are the primary reasons for bottlenecks 90% of the time as IO is inherently slower. You must calculate how many times 
+    these operations will be done and at what rate. Assume the worst-case scenario and take a safety factor of 2 and then design your solutions.
+    Do not assume that the best of the hardware is available so do performance testing in a way that it can run on the lower configuration of 
+    RAM and CPU
     Unoptimized queries are the number one reason for DB poor performance so always run a query execution plan 
     Correct Indexes not being created or not being used are the most prominent reasons for the poor performance of queries
-    Full Table Scans are a crime don’t do it. Vivid Cortex can help you find if this is happening
+    Full Table Scans are a crime don’t do it --> Vivid Cortex can help you find if this is happening
     Regularly watch Dynatrace to understand the behavior of your APIs. If your APIs SLA has been breached then find out the root cause asap.
     Evaluate no. of queries per request being made and how it can be optimized.
