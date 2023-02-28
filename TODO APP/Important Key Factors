@@ -126,4 +126,11 @@ OpenID Connect - OpenID Connect builds on top of OAuth2 and add authentication. 
 CSRF protection - You don't need implement the CSRF protection if you do not store token in the browser's cookie.
 
 
+KONG -: Kong is an open source API gateway and platform that acts as middleware between compute clients and the API-centric applications. 
+        The platform easily extends the capabilities of APIs with the use of plugins.
+	Kong provides different ways of load balancing requests to multiple services - 
+	  - DNS-based method - A DNS-based method will configure a domain in DNS in such a manner that the user requests to the domain are 
+	                       distributed among a group of services.
+	  - round-robin method and a 
+	  - hash-based balancing method. 
 
