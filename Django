@@ -34,4 +34,9 @@ Ques5. What is CSRF token?
   * This kind of attack takes place when a malicious website consists of a link, some JavaScript or a form whose aim is to perform some action on 
     your website b using the loan credentials of a genuine user.
     
-Que6. 
+Que6. manage.py
+  • manage,py file is automatically generated
+  • It is a command-line utility that helps you to interact with your Django project
+  • It does the same things as django-admin
+  • Also sets the DJANGO_SETTINGS_MODULE environment variable
+  • It is better to make use of manage,py rather than the django-admin
