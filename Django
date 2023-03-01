@@ -40,3 +40,17 @@ Que6. manage.py
   • It does the same things as django-admin
   • Also sets the DJANGO_SETTINGS_MODULE environment variable
   • It is better to make use of manage,py rather than the django-admin
+
+
+Ques7. What are static files?
+  • Static files are files that serve the purpose of additional files such as the CSS files, images or JavaScript files
+  • These files are managed by django.contrib.staticfiles
+  • These files are created within the project app directory
+  
+  
+Ques8. Connect to Db
+Use the following commands:
+python manage.py migrate
+python manage.py makemigrations
+python manage.py sqlmigrate (name of
+the app followed by the generated id
