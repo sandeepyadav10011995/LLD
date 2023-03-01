@@ -26,4 +26,12 @@ Ques3. What is Django?
   • Flexibility while using URL's
  
  
-Ques4. 
+Ques4. Do Django support multi primary key
+  No. Django only supports single-column primary keys.
+
+Ques5. What is CSRF token?
+  *The csrf token is used for protection against Cross-Site Request Forgeries. 
+  * This kind of attack takes place when a malicious website consists of a link, some JavaScript or a form whose aim is to perform some action on 
+    your website b using the loan credentials of a genuine user.
+    
+Que6. 
