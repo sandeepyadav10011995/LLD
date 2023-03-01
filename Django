@@ -1,0 +1,6 @@
+Ques1. What are models
+  • Single and definitive source for information about your data
+  • Consists of all the essential fields and behaviours
+  • Each model will map to a single specific database table
+  • In Django, models serve as the abstraction layer
+  • They are a subclass of the django.db.models.Model
