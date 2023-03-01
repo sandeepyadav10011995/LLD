@@ -4,3 +4,26 @@ Ques1. What are models
   • Each model will map to a single specific database table
   • In Django, models serve as the abstraction layer
   • They are a subclass of the django.db.models.Model
+
+Ques2. What are Views?
+  • Django first determines which root URLconf module is to be used
+  • That particular Python module is loaded
+  • Then, Django looks for the variable urlpatterns
+  • URL patterns are run by Django, and it stops at the first match of the requested URL
+  • Once that is done, the Django then imports and calls the given view
+  • In case none of the URLs match the requested URL, Dango invokes an error-handling view
+  
+  
+Ques3. What is Django?
+  • Django's stack is loosely coupled
+  • Very less code
+  • Quick development
+  • Follows Don't Repeat Yourself Principle
+  • Consistent
+  • Behaviours are explicitly specified
+  • SQL statements are not executed too many times
+  • Can easily drop into raw SQL
+  • Flexibility while using URL's
+ 
+ 
+Ques4. 
