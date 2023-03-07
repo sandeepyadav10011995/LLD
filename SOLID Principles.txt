@@ -1,0 +1,301 @@
+"""
+SOLID Principles
+
+Github Repo Link -: https://github.com/arjancodes/betterpython
+
+Example -:
+Order Class
+Payment Class
+
+S-: Single Responsibility
+    Before.py
+        Order - Class
+            - items = []
+            - quantities = []
+            - prices = []
+            - status = "open"
+            
+            => add_items(name, quantity, price)
+            => total_prices()
+            => pay(payment_type, security_code)
+                if else loop on payment_type -> status = "paid
+        
+    After.py
+        Order - Class
+           - items = []
+            - quantities = []
+            - prices = []
+            - status = "open"
+            
+            => add_items(name, quantity, price)
+            => total_prices() 
+        
+        PaymentProcessor - Class    
+            => pay_debit(order, security_code) -> status = "paid"
+            => pay_credit(order, security_code) -> status = "paid"
+    
+    
+O-: Open For Extension And Closed For Modification
+    Before.py
+        Order - Class
+           - items = []
+            - quantities = []
+            - prices = []
+            - status = "open"
+            
+            => add_items(name, quantity, price)
+            => total_prices() 
+        
+        PaymentProcessor - Class    
+            => pay_debit(order, security_code) -> status = "paid"
+            => pay_credit(order, security_code) -> status = "paid"
+    
+    After.py
+        Order - Class
+           - items = []
+            - quantities = []
+            - prices = []
+            - status = "open"
+            
+            => add_items(name, quantity, price)
+            => total_prices() 
+        
+        PaymentProcessor - ABC Class
+            => pay(order, security_code)
+          
+        DebitPaymentProcessor - PaymentProcessor
+            => pay(order, security_code) -> status = "paid"
+        
+        CreditPaymentProcessor - PaymentProcessor
+            => pay(order, security_code) -> status = "paid"      
+        
+L-: Liskov Substitution
+    Before.py
+        Order - Class
+           - items = []
+            - quantities = []
+            - prices = []
+            - status = "open"
+            
+            => add_items(name, quantity, price)
+            => total_prices() 
+        
+        PaymentProcessor - ABC Class
+            => pay(order, security_code)
+          
+        DebitPaymentProcessor - PaymentProcessor
+            => pay(order, security_code) -> status = "paid"
+        
+        CreditPaymentProcessor - PaymentProcessor
+            => pay(order, security_code) -> status = "paid"
+    After.py
+        Order - Class
+           - items = []
+            - quantities = []
+            - prices = []
+            - status = "open"
+            
+            => add_items(name, quantity, price)
+            => total_prices() 
+        
+        PaymentProcessor - ABC Class
+            => pay(order)
+          
+        DebitPaymentProcessor - PaymentProcessor
+            => __init__(security_code)
+            => pay(order) -> status = "paid"
+        
+        CreditPaymentProcessor - PaymentProcessor
+            => __init__(security_code)
+            => pay(order) -> status = "paid"
+        
+        PaypalPaymentProcessor - PaymentProcessor
+            => __init__(email_address)
+            => pay(order) -> status = "paid"
+
+I-: Interface Segregation
+    Before.py
+        Order - Class
+           - items = []
+            - quantities = []
+            - prices = []
+            - status = "open"
+            
+            => add_items(name, quantity, price)
+            => total_prices() 
+        
+        PaymentProcessor - ABC Class
+            => pay(order)
+            => auth_sms(code)
+          
+        DebitPaymentProcessor - PaymentProcessor
+            => __init__(security_code)
+                - verified = False
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+        
+        CreditPaymentProcessor - PaymentProcessor
+            => __init__(security_code)
+                - verified = False
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+        
+        PaypalPaymentProcessor - PaymentProcessor
+            => __init__(email_address)
+                - verified = False
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+    
+    After.py
+        Order - Class
+           - items = []
+            - quantities = []
+            - prices = []
+            - status = "open"
+            
+            => add_items(name, quantity, price)
+            => total_prices() 
+        
+        PaymentProcessor - ABC Class
+            => pay(order)
+        
+        PaymentProcessorSMS - PaymentProcessor
+            => pay(order)
+            => auth_sms(code)
+          
+        DebitPaymentProcessor - PaymentProcessorSMS
+            => __init__(security_code)
+                - verified = False
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+        
+        CreditPaymentProcessor - PaymentProcessor
+            => __init__(security_code)
+                - verified = False
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+        
+        PaypalPaymentProcessor - PaymentProcessorSMS
+            => __init__(email_address)
+                - verified = False
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+    
+    After.py => Composition
+        Order - Class
+           - items = []
+            - quantities = []
+            - prices = []
+            - status = "open"
+            
+            => add_items(name, quantity, price)
+            => total_prices() 
+        
+        PaymentProcessor - ABC Class
+            => pay(order)
+        
+        SMSAuthorizer - Class
+            => __init__()
+                - authorized = False
+            => verify_code(order) -> authorized = True
+            => is_authorized(code) -> bool
+          
+        DebitPaymentProcessor - PaymentProcessor
+            => __init__(security_code, authorizer: SMSAuthorizer)
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+        
+        CreditPaymentProcessor - PaymentProcessor
+            => __init__(security_code, authorizer: SMSAuthorizer)
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+        
+        PaypalPaymentProcessor - PaymentProcessor
+            => __init__(email_address, authorizer: SMSAuthorizer)
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+    
+D-: Dependency Inversion
+    Before.py
+        Order - Class
+           - items = []
+            - quantities = []
+            - prices = []
+            - status = "open"
+            
+            => add_items(name, quantity, price)
+            => total_prices() 
+        
+        PaymentProcessor - ABC Class
+            => pay(order)
+        
+        SMSAuthorizer - Class
+            => __init__()
+                - authorized = False
+            => verify_code(order) -> authorized = True
+            => is_authorized(code) -> bool
+          
+        DebitPaymentProcessor - PaymentProcessor
+            => __init__(security_code, authorizer: SMSAuthorizer)
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+        
+        CreditPaymentProcessor - PaymentProcessor
+            => __init__(security_code, authorizer: SMSAuthorizer)
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+        
+        PaypalPaymentProcessor - PaymentProcessor
+            => __init__(email_address, authorizer: SMSAuthorizer)
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+    
+    After.py
+        Order - Class
+           - items = []
+            - quantities = []
+            - prices = []
+            - status = "open"
+            
+            => add_items(name, quantity, price)
+            => total_prices() 
+            
+        Authorizer - ABC Class
+            => is_authorized() -> bool
+        
+        AuthorizerSMS - Authorizer
+            => __init__()
+                - authorized = False
+            => verify_code(order) -> authorized = True
+            => is_authorized(code) -> bool
+        
+        AuthorizerGoogle - Authorizer
+            => __init__()
+                - authorized = False
+            => verify_code(order) -> authorized = True
+            => is_authorized(code) -> bool
+        
+        AuthorizerRobot - Authorizer
+            => __init__()
+                - authorized = False
+            => not_a_robot(order) -> authorized = True
+            => is_authorized(code) -> bool
+        
+        PaymentProcessor - ABC Class
+            => pay(order)
+        
+        DebitPaymentProcessor - PaymentProcessor
+            => __init__(security_code, authorizer: Authorizer)
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+        
+        CreditPaymentProcessor - PaymentProcessor
+            => __init__(security_code, authorizer: Authorizer)
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+        
+        PaypalPaymentProcessor - PaymentProcessor
+            => __init__(email_address, authorizer: Authorizer)
+            => auth_sms(code) -> verified = True
+            => pay(order) -> status = "paid"
+"""
