@@ -1,3 +1,11 @@
+## Spring Boot Intro
+    Spring Boot is a project that is built on the top of the Spring Framework. 
+    It provides an easier and faster way to set up, configure, and run both simple and web-based applications.
+    It is a Spring module that provides the RAD (Rapid Application Development) feature to the Spring Framework. 
+    It is used to create a stand-alone Spring-based application that you can just run because it needs minimal Spring configuration.
+
+![image](https://user-images.githubusercontent.com/22426280/225797032-354aac21-8849-461c-8205-1290df9723a1.png)
+
 ## Spring IOC resolves such dependencies with Dependency Injection, which makes the code easier to test and reuse.Loose coupling between classes can be possible by defining interfaces for common functionality and the injector will instantiate the objects of required implementation.
 
 #### Types of Spring Dependency Injection: 
