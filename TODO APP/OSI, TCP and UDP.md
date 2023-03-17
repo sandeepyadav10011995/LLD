@@ -1,6 +1,9 @@
+## OSI Model
+
 ![OSI Model](https://user-images.githubusercontent.com/22426280/225791922-6dbad638-0a5a-47c6-9bb2-f1d9d1480387.png)
 
-Features -:
+## Features -:
+    
     Connection status -:
           TCP: Requires an established connection to transmit data (connection should be closed once transmission is complete)
 
