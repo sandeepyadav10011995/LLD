@@ -1,4 +1,3 @@
-"""
 Kafka and RabbitMQ are both messaging systems that are commonly used in modern distributed systems. While they share 
 some similarities, they differ in several ways.
 
@@ -34,4 +33,5 @@ In summary, both Kafka and RabbitMQ are powerful messaging systems that can be u
 applications. 
     *   Kafka is better suited for real-time streaming applications that require high throughput and low latency. 
     *   RabbitMQ is better suited for traditional enterprise applications that require reliable messaging.
-"""
+    
+https://www.cloudamqp.com/blog/when-to-use-rabbitmq-or-apache-kafka.html
