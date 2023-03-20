@@ -34,6 +34,7 @@ RabbitMQ : prefetch simply controls how many messsages the broker allows to be o
 
 In summary, both Kafka and RabbitMQ are powerful messaging systems that can be used in a variety of distributed 
 applications. 
+
     *   Kafka is better suited for real-time streaming applications that require high throughput and low latency. 
     *   RabbitMQ is better suited for traditional enterprise applications that require reliable messaging.
     
