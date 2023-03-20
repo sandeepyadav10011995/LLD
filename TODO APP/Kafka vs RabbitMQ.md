@@ -1,6 +1,9 @@
 Kafka and RabbitMQ are both messaging systems that are commonly used in modern distributed systems. While they share 
 some similarities, they differ in several ways.
 
+
+RabbitMQ : prefetch simply controls how many messsages the broker allows to be outstanding at the consumer at a time.
+
 1.  Architecture:
     *   Kafka is a distributed streaming platform, which means that it is designed to handle high-throughput, 
         low-latency data streams. It is built on a pub-sub model and provides durable, fault-tolerant messaging between 
