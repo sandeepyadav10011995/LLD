@@ -38,4 +38,12 @@ applications.
     *   Kafka is better suited for real-time streaming applications that require high throughput and low latency. 
     *   RabbitMQ is better suited for traditional enterprise applications that require reliable messaging.
     
+    
+   In Kafka, each broker runs multiple threads, including network threads for handling client requests and data replication, disk I/O threads for reading and writing data to disk, and background threads for tasks such as cleaning up old data and maintaining metadata. Additionally, the Kafka client libraries provide a multi-threaded API for consuming and producing messages.
+
+   Similarly, RabbitMQ uses multiple threads to handle connections, network I/O, and message delivery. RabbitMQ uses a thread pool to handle incoming connections, and multiple threads are used to manage the exchange, queue, and binding data structures. RabbitMQ also supports multi-threaded message consumption and delivery via its client libraries.
+
+   In both cases, multi-threading is used to improve performance and scalability, allowing the systems to handle large numbers of concurrent clients and messages. However, it's worth noting that both Kafka and RabbitMQ have different architectures and design principles, and may use multi-threading in different ways and for different purposes.
+
+
 https://www.cloudamqp.com/blog/when-to-use-rabbitmq-or-apache-kafka.html
