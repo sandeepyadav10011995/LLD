@@ -35,7 +35,7 @@
         print(list(map_object))
         Output : [True, False, False, True, False]
 
-# ------------------------------- Filter ------------------------------------------
+# ------------------------------- Filter ----------------------------
 
         The filter() Function
         Similar to map(), filter() takes a function object and an iterable and creates a new list.
@@ -66,7 +66,7 @@
 
         Output : ['Apple', 'Apricot']
 
-# -------------------------- Reduce ----------------------------------------
+# -------------------------- Reduce ------------------------
 
         reduce() works differently than map() and filter(). It does not return a new list based on the function and iterable 
         we've passed. Instead, it returns a single value.
