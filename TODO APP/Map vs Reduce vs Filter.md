@@ -57,6 +57,7 @@
         filter_object = filter(starts_with_A, fruit)
 
         print(list(filter_object))
+        Output-: ['Apple', 'Apricot']
 
 
         fruit = ["Apple", "Banana", "Pear", "Apricot", "Orange"]
@@ -92,3 +93,7 @@
         list = [2, 4, 7, 3]
         print(reduce(lambda x, y: x + y, list))
         print("With an initial value: " + str(reduce(lambda x, y: x + y, list, 10)))
+        Output -:
+        16
+        With an initial value: 26
+        
