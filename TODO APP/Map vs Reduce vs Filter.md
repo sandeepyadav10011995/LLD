@@ -12,8 +12,7 @@
         function that calculates x + y
 
 
-
-        --------------------------------------- Map --------------------------------------------
+# ----------------------- Map ---------------------------
         The map() function iterates through all items in the given iterable and executes the function we passed as an argument
         on each of them.
 
