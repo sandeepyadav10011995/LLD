@@ -18,13 +18,16 @@ easily maintainable web applications.
         Database Connection, Manipulation using ORM Mappers ===>> Web Security ===>> Session Storage and Retrieval
 
 
-Template Engine -: It allows the developers to generate a desired content types for example HTML, XML or JSON.
+##### Template Engine -: 
+It allows the developers to generate a desired content types for example HTML, XML or JSON.
 
-ORM (Object Relational Mapper) -: It is a code library that automates the transfer of data stored in a relational
-database into the objects that are most commonly used in an application code.
+##### ORM (Object Relational Mapper) -: 
+It is a code library that automates the transfer of data stored in a relational database into the objects that are most commonly 
+used in an application code.
 
-Web Security -: We also have the web security against cross-site request forgery also known as CSRF, SQL injection,
-cross-site scripting and common malicious attacks as well.
+##### Web Security -: 
+We also have the web security against cross-site request forgery also known as CSRF, SQL injection, cross-site scripting and common 
+malicious attacks as well.
 
 ### Python Frameworks -:
 
