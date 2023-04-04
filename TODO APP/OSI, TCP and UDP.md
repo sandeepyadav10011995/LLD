@@ -49,6 +49,13 @@
 
           UDP: Video conferencing, streaming, DNS, VoIP, etc
       
-      
+## Analogy -:
+TCP and UDP are both ways that computers can send information to each other over the internet, but they work in different ways.
+
+TCP is like sending a package through the mail with a tracking number. When you send a package with a tracking number, you know exactly when it's been sent, when it's been received, and if there were any problems along the way. TCP works in a similar way by making sure that every piece of information that's sent between computers is checked to make sure it gets there safely and in the right order. This is great for things like emails or web pages where you want to make sure all the information arrives intact.
+
+UDP, on the other hand, is like sending a postcard through the mail without any tracking number. You don't know if the postcard gets lost, and you don't know if it arrives out of order. UDP doesn't check to make sure that every piece of information is received correctly, so it's faster than TCP. This is great for things like online gaming, where speed is more important than making sure every piece of information is received.
+
+So, TCP is like sending a package with a tracking number to make sure everything arrives safely, and UDP is like sending a postcard without tracking to get there faster, but you don't know if it got there in one piece.
       
       
