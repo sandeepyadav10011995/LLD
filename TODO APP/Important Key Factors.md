@@ -1,37 +1,41 @@
-* SHARDING -: Data divide into multiple DB (equal distribution but maintaiance could be an issue when introducing new db server so we use 
-              consistent hashing rather than a simple mod.
+#### SHARDING
+	Data divide into multiple DB (equal distribution but maintaiance could be an issue when introducing new db server so we use consistent 
+	hashing rather than a simple mod.
 
-* SQL Joins are expensive (could use nosql if permits)
-* NoSQL has built for sharding already, but for SQL you need to define alag se
-* Trade off b/w Consistency vs Availibility (Twitter/ fb choose Availibility where as Banking uses Consistency) in case of data replication b/w 
-   several db nodes of replicas
-* To maintain consistentcy b/w db nodes - 3 Phase commit is better (Prepare, Pre Commit, Commit), so if orchestrator (master)dies, a node will 
-  check of any other node is in pre commit phase, otherwise the commit will br aborted
+	* SQL Joins are expensive (could use nosql if permits)
+	* NoSQL has built for sharding already, but for SQL you need to define alag se
+	* Trade off b/w Consistency vs Availibility (Twitter/ fb choose Availibility where as Banking uses Consistency) in case of data replication b/w 
+	   several db nodes of replicas
+	* To maintain consistentcy b/w db nodes - 3 Phase commit is better (Prepare, Pre Commit, Commit), so if orchestrator (master)dies, a node will 
+	  check of any other node is in pre commit phase, otherwise the commit will br aborted
 
-* Kafka is industry standard for queue - Have high throughput (more number of msg can be passed fastly)
-* Pub Sub Model benefits - Consumer can operate by it's capacity (leaky bucket algo - flash sale), Event Driven
+### Event Driven Info
+	* Kafka is industry standard for queue - Have high throughput (more number of msg can be passed fastly)
+	* Pub Sub Model benefits - Consumer can operate by it's capacity (leaky bucket algo - flash sale), Event Driven
 
-* Rate Limiting - Limiting no. of request per user for a specific time
+	* Rate Limiting - Limiting no. of request per user for a specific time
 
 
-* Timeline Generation - Hybrid Model 
+###### Timeline Generation - Hybrid Model 
 	Push - for normal users (not many followers) - push (append) their tweets to their follower's timeline data
 	Pull - for celebrities (many followers) - place the tweet in cache too and whenever a follower open's timeline we'll pull data from 
 	       cache too plus it's timeline data
 
-* 80-20 rule - 20% request bring 80% of traffic so we'll put that data in cache
-* LRU Cache - Remove the least recently used one to put new data in cache
+##### Some Important Rules
+	* 80-20 rule - 20% request bring 80% of traffic so we'll put that data in cache
+	* LRU Cache - Remove the least recently used one to put new data in cache
+	
+#### Google Maps
+	* Any Nearby Usecase - ola, swiggy, nearbuy, etc - We use Google's S2 API
+	    Google Maps has divided whole world into cells/tiles and with each zoom level you can see 2**(zoom_level*2) tiles . So you need to pass the 
+	    user location , zoom level and radius to S2 to get all the nearby data (cell IDs) - it has total 21 zoom levels
 
-* Any Nearby Usecase - ola, swiggy, nearbuy, etc - We use Google's S2 API
-    Google Maps has divided whole world into cells/tiles and with each zoom level you can see 2**(zoom_level*2) tiles . So you need to pass the 
-    user location , zoom level and radius to S2 to get all the nearby data (cell IDs) - it has total 21 zoom levels
-
-* Master Slave Architectue - Master will handle writes, slave will handle reads
-* Gossip Protocol - DB servers (sharded) tell each other the range of data they are storing through this (Used in Uber)
+	* Master Slave Architectue - Master will handle writes, slave will handle reads
+	* Gossip Protocol - DB servers (sharded) tell each other the range of data they are storing through this (Used in Uber)
 
 
-* Bloom Filter - to check if any data is preexisted in DB (used in web crawler to see if we have saved a URL or to check whether we have that 
-    name as username in DB) - Apply multiple hashing to a string and for each hash value make true a bit in the array https://youtu.be/XbXL9ijDJpo?t=2708
+	* Bloom Filter - to check if any data is preexisted in DB (used in web crawler to see if we have saved a URL or to check whether we have that 
+	    name as username in DB) - Apply multiple hashing to a string and for each hash value make true a bit in the array https://youtu.be/XbXL9ijDJpo?t=2708
 
 
 * HTTP Long Polling is a technique used to push information to a client as soon as possible on the server. ... 
