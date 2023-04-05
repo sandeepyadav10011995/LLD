@@ -5,60 +5,28 @@ Cohesion : It is the degree to which elements of a certain class or function bel
 
 Coupling : It is a measure of how two parts of your code are dependent on each other. High Coupling is problematic and
            not good.
-
-## Analogy -: 
-Example : Let's say we want to write a program that calculates the volume of different 3D shapes. We can create a class called Shape that has methods for calculating the volume of different shapes:
-
-           class Shape:
-               def __init__(self):
-                   pass
-
-               def calculate_volume(self):
-                   pass
-This Shape class has low cohesion because it has a single method calculate_volume() that can be used to calculate the volume of any shape. This means that the class is handling multiple unrelated tasks.
-
-To improve cohesion, we can create separate classes for each shape type. For example, we can create a class called Sphere that calculates the volume of a sphere:
-
-           class Sphere:
-               def __init__(self, radius):
-                   self.radius = radius
-
-               def calculate_volume(self):
-                   return (4 / 3) * 3.14 * (self.radius ** 3)
-This Sphere class has high cohesion because it has a single method calculate_volume() that is only used to calculate the volume of a sphere. The class is handling a single, specific task.
-
-Now let's consider coupling. If our Sphere class needs to calculate the value of Pi, and it calls a separate function get_pi() to do so, then there is a coupling between the two. If the get_pi() function were to change, then the Sphere class might need to be updated as well. To reduce coupling, we could instead include the value of Pi directly in the Sphere class:
-
-           class Sphere:
-               def __init__(self, radius):
-                   self.radius = radius
-                   self.pi = 3.14
-
-               def calculate_volume(self):
-                   return (4 / 3) * self.pi * (self.radius ** 3)
-
-Now, the Sphere class has lower coupling because it doesn't rely on an external function to calculate the value of Pi.
-
-
-
+           
 Github Repo Link -: https://github.com/arjancodes/betterpython
 
 ## Cohesion & Coupling --> Before
 
-
-  import string
-  import random
-
-
-  class VehicleRegistry:
-
-    def generate_vehicle_id(self, length):
-        return ''.join(random.choices(string.ascii_uppercase, k=length))
-
-    def generate_vehicle_license(self, id):
-        return f"{id[:2]}-{''.join(random.choices(string.digits, k=2))}-{''.join(random.choices(string.ascii_uppercase, k=2))}"
+```
+import string
+import random
 
 
+class VehicleRegistry:
+
+  def generate_vehicle_id(self, length):
+     return ''.join(random.choices(string.ascii_uppercase, k=length))
+
+  def generate_vehicle_license(self, id):
+     return f"{id[:2]}-{''.join(random.choices(string.digits, k=2))}-{''.join(random.choices(string.ascii_uppercase, k=2))}"
+
+```
+
+
+```
 class Application:
 
     def register_vehicle(self, brand: string):
@@ -100,76 +68,77 @@ class Application:
 app = Application()
 app.register_vehicle("Volkswagen ID3")
 
-
+```
 
 ## Cohesion & Coupling --> After 
+```
+class VehicleInfo:
 
-           class VehicleInfo:
+    def __init__(self, brand: str, electric: bool, catalogue_price: float):
+        self.brand = brand
+        self.electric = electric
+        self.catalogue_price = catalogue_price
 
-               def __init__(self, brand: str, electric: bool, catalogue_price: float):
-                   self.brand = brand
-                   self.electric = electric
-                   self.catalogue_price = catalogue_price
+    def compute_tax(self):
+        tax_percentage = 0.02 if self.electric else 0.05
+        return tax_percentage * self.catalogue_price
 
-               def compute_tax(self):
-                   tax_percentage = 0.02 if self.electric else 0.05
-                   return tax_percentage * self.catalogue_price
-
-               def print(self):
-                   print(f"Brand: {self.brand}")
-                   print(f"Payable tax: {self.compute_tax()}")
-
-
-           class Vehicle:
-
-               def __init__(self, id: str, license_plate: str, info: VehicleInfo):
-                   self.id = id
-                   self.license_plate = license_plate
-                   self.info = info
-
-               def print(self):
-                   print(f"Id: {self.id}")
-                   print(f"License plate: {self.license_plate}")
-                   self.info.print()
+    def print(self):
+        print(f"Brand: {self.brand}")
+        print(f"Payable tax: {self.compute_tax()}")
 
 
-           class VehicleRegistry2:
+class Vehicle:
 
-               def __init__(self) -> None:
-                   self.vehicle_info = {}
-                   self.add_vehicle_info("Tesla Model 3", True, 60000)
-                   self.add_vehicle_info("Volkswagen ID3", True, 35000)
-                   self.add_vehicle_info("BMW 5", False, 45000)
-                   self.add_vehicle_info("Tesla Model Y", True, 75000)
+    def __init__(self, id: str, license_plate: str, info: VehicleInfo):
+        self.id = id
+        self.license_plate = license_plate
+        self.info = info
 
-               def add_vehicle_info(self, brand: str, electric: bool, catalogue_price: float) -> None:
-                   self.vehicle_info[brand] = VehicleInfo(brand, electric, catalogue_price)
-
-               @staticmethod
-               def generate_vehicle_id(length) -> str:
-                   return ''.join(random.choices(string.ascii_uppercase, k=length))
-
-               @staticmethod
-               def generate_vehicle_license(id) -> str:
-                   return f"{id[:2]}-{''.join(random.choices(string.digits, k=2))}-{''.join(random.choices(string.ascii_uppercase, k=2))}"
-
-               def create_vehicle(self, brand: str) -> Vehicle:
-                   id = self.generate_vehicle_id(12)
-                   license_plate = self.generate_vehicle_license(id)
-                   return Vehicle(id, license_plate, self.vehicle_info[brand])
+    def print(self):
+        print(f"Id: {self.id}")
+        print(f"License plate: {self.license_plate}")
+        self.info.print()
 
 
-           class Application:
+class VehicleRegistry2:
 
-               @staticmethod
-               def register_vehicle(brand: str) -> Vehicle:
-                   # create a registry instance
-                   registry = VehicleRegistry2()
-                   return registry.create_vehicle(brand)
+    def __init__(self) -> None:
+        self.vehicle_info = {}
+        self.add_vehicle_info("Tesla Model 3", True, 60000)
+        self.add_vehicle_info("Volkswagen ID3", True, 35000)
+        self.add_vehicle_info("BMW 5", False, 45000)
+        self.add_vehicle_info("Tesla Model Y", True, 75000)
+
+    def add_vehicle_info(self, brand: str, electric: bool, catalogue_price: float) -> None:
+        self.vehicle_info[brand] = VehicleInfo(brand, electric, catalogue_price)
+
+    @staticmethod
+    def generate_vehicle_id(length) -> str:
+        return ''.join(random.choices(string.ascii_uppercase, k=length))
+
+    @staticmethod
+    def generate_vehicle_license(id) -> str:
+        return f"{id[:2]}-{''.join(random.choices(string.digits, k=2))}-{''.join(random.choices(string.ascii_uppercase, k=2))}"
+
+    def create_vehicle(self, brand: str) -> Vehicle:
+        id = self.generate_vehicle_id(12)
+        license_plate = self.generate_vehicle_license(id)
+        return Vehicle(id, license_plate, self.vehicle_info[brand])
 
 
-           app = Application()
-           vehicle = app.register_vehicle("Volkswagen ID3")
-           # print out the vehicle registration information
-           print("Registration complete. Vehicle information:")
-           vehicle.print()
+class Application:
+
+    @staticmethod
+    def register_vehicle(brand: str) -> Vehicle:
+        # create a registry instance
+        registry = VehicleRegistry2()
+        return registry.create_vehicle(brand)
+
+
+app = Application()
+vehicle = app.register_vehicle("Volkswagen ID3")
+# print out the vehicle registration information
+print("Registration complete. Vehicle information:")
+vehicle.print()
+```
