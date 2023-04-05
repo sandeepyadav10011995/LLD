@@ -47,6 +47,12 @@ applications.
 
    So, Kafka is like a bulletin board where messages can be posted and read by many people, and RabbitMQ is like a mailbox system where messages are sent and received by specific individuals.
 
+## Why Kafka is so fast ?
+Kafka achieves low latency message delivery through Sequential I/O and Zero Copy Principle. 
+The same techniques are commonly used in many other messaging/streaming platforms. 
+![image](https://user-images.githubusercontent.com/22426280/229981113-cbcbe3a4-4f08-4db0-8edd-f5e641ca136d.png)
+
+
 ## In-depth -:
 
    In Kafka, each broker runs multiple threads, including network threads for handling client requests and data replication, disk I/O threads for reading and writing data to disk, and background threads for tasks such as cleaning up old data and maintaining metadata. Additionally, the Kafka client libraries provide a multi-threaded API for consuming and producing messages.
