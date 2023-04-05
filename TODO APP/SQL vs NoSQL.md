@@ -13,3 +13,9 @@ SQL and NoSQL are both ways of storing and organizing information in a database,
 ### Conclusion
 So, SQL is like a filing cabinet where everything is organized and structured, and NoSQL is like a big box where
 everything is thrown in and accessed more flexibly.
+
+
+### 8 Data Structures That Power Your Databases. Which one should we pick?
+
+![image](https://user-images.githubusercontent.com/22426280/229985692-d7f53044-3fc8-4bf6-abc2-70783688d571.png)
+
