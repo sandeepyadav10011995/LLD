@@ -1,4 +1,5 @@
 #### SHARDING
+
 	Data divide into multiple DB (equal distribution but maintaiance could be an issue when introducing new db server so we use consistent 
 	hashing rather than a simple mod.
 
@@ -45,6 +46,7 @@
 	* XMPP - Extensible Messaging and Presence Protocol is an open communication protocol designed for instant messaging, presence information, and contact list maintenance. Based on XML, it enables the near-real-time exchange of structured data between two or more network entities (for chats) (in python u can install ejabberd)
 	
 #### Proxies
+	
 	* Collapsed forwarding - Proxies can combine the same data access requests into one request and then return the result to the user; 
 	    this technique is called collapsed forwarding. Consider a request for the same data across several nodes, but the data is not in cache. 
 	    By routing these requests through the proxy, they can be consolidated into one so that we will only read data from the disk once.
