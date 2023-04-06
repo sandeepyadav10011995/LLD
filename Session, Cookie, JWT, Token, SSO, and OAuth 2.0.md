@@ -24,30 +24,30 @@
     🔹 Standard representation of tokens
     🔹 Digitally signed & verifiable
     🔹 No need to save session info server-side
-  <img width="664" alt="Screenshot 2023-04-06 at 2 32 23 PM" src="https://user-images.githubusercontent.com/22426280/230329002-8a909041-966c-4266-ab8a-521c952633b7.png">
+  <img width="300" alt="Screenshot 2023-04-06 at 2 32 23 PM" src="https://user-images.githubusercontent.com/22426280/230329002-8a909041-966c-4266-ab8a-521c952633b7.png">
 
 
 ### 𝗦𝗦𝗢 (𝗦𝗶𝗻𝗴𝗹𝗲 𝗦𝗶𝗴𝗻-𝗢𝗻) & 𝗢𝗔𝘂𝘁𝗵 𝟮.𝟬. 
     🔹 SSO: Log in once, access multiple sites
     🔹 Uses CAS (central authentication service)
     🔹 OAuth 2.0: Authorize one site to access info on another
-   <img width="583" alt="Screenshot 2023-04-06 at 2 19 56 PM" src="https://user-images.githubusercontent.com/22426280/230326770-3a2b2569-d03f-4fe5-973b-7e7eaf066da5.png">
+   <img width="300" alt="Screenshot 2023-04-06 at 2 19 56 PM" src="https://user-images.githubusercontent.com/22426280/230326770-3a2b2569-d03f-4fe5-973b-7e7eaf066da5.png">
             Built on concept called Federated Identity: It enables the sharing of identity information across trusted but independent systems 
-            <img width="734" alt="Screenshot 2023-04-06 at 2 21 39 PM" src="https://user-images.githubusercontent.com/22426280/230327471-329655b3-b441-447b-9449-5558dc82ce22.png">
+            <img width="300" alt="Screenshot 2023-04-06 at 2 21 39 PM" src="https://user-images.githubusercontent.com/22426280/230327471-329655b3-b441-447b-9449-5558dc82ce22.png">
            
 #### Two kinds of Authetication Process for SSO -:
-   <img width="463" alt="Screenshot 2023-04-06 at 2 41 52 PM" src="https://user-images.githubusercontent.com/22426280/230331296-212b4cb5-1395-4366-aaeb-c6055a88bafb.png">
+   <img width="300" alt="Screenshot 2023-04-06 at 2 41 52 PM" src="https://user-images.githubusercontent.com/22426280/230331296-212b4cb5-1395-4366-aaeb-c6055a88bafb.png">
    
 ##### SAML (Security Assertion Markup Language)
     It is an XML based open standard for exchanging identity information between services.
 ###### Step1:
-<img width="562" alt="Screenshot 2023-04-06 at 2 35 00 PM" src="https://user-images.githubusercontent.com/22426280/230332799-cb750cbb-d32e-4b22-9941-1409973954e8.png">
+<img width="400" alt="Screenshot 2023-04-06 at 2 35 00 PM" src="https://user-images.githubusercontent.com/22426280/230332799-cb750cbb-d32e-4b22-9941-1409973954e8.png">
 
 ###### Step2:
-<img width="558" alt="Screenshot 2023-04-06 at 2 37 28 PM" src="https://user-images.githubusercontent.com/22426280/230332989-7c8b9b81-a795-4c00-99ca-dc3eb9842e6c.png">
+<img width="400" alt="Screenshot 2023-04-06 at 2 37 28 PM" src="https://user-images.githubusercontent.com/22426280/230332989-7c8b9b81-a795-4c00-99ca-dc3eb9842e6c.png">
 
 ###### Step: For Third Part App like Workday
-<img width="886" alt="Screenshot 2023-04-06 at 2 39 29 PM" src="https://user-images.githubusercontent.com/22426280/230333677-314000bd-3fc0-4b56-8086-d882638f8b47.png">
+<img width="500" alt="Screenshot 2023-04-06 at 2 39 29 PM" src="https://user-images.githubusercontent.com/22426280/230333677-314000bd-3fc0-4b56-8086-d882638f8b47.png">
 
 
 ##### OpenID Connect
