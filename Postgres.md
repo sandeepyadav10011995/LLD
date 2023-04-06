@@ -27,3 +27,9 @@
 
     🔹 Distributed Tables
         CitusData scales Postgres by distributing data & queries. 
+
+## Types Of SQL Joins -:
+![image](https://user-images.githubusercontent.com/22426280/230443800-61df5bfd-4808-4ccf-9315-01cf37a231e0.png)
+
+
+
