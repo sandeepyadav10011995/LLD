@@ -106,17 +106,18 @@ Let's suppose the following three querysets generated from above models, that yo
 1. __Using Union Operator:__  
     If both querysets belong to the same model, such as query_set_1 & query_set_3 above, 
     then you can use union operator "|" to easily combine those querysets.
-        query_set_result = query_set_1 | query_set_3
+* query_set_result = query_set_1 | query_set_3
 
-    You can use the union operator to combine two or more querysets as shown below.
-        combined_result= query_set_1 | query_set_3 | query_set_4 ...
+#### You can use the union operator to combine two or more querysets as shown below.
+* combined_result= query_set_1 | query_set_3 | query_set_4 ...
 
 2. __Using Itertools:__
     If both querysets belong to the different  model, such as query_set_1 & query_set_2 above, 
     then you can use itertools combine those querysets.
-        from itertools import chain 
-        combined_list = list(chain(query_set_1,query_set_2))
-    You just need to mention the querysets you want to combine in a comma-separated manner in chain function. You can also use it 
-    to combine more than two querysets.
-    combined_list = list(chain(query_set_1, query_set_2, query_set_3))
-    There is an issue with this approach, you won't get a queryset, you’ll get a list containing instances.
+```
+from itertools import chain 
+combined_list = list(chain(query_set_1,query_set_2))
+```
+#### You just need to mention the querysets you want to combine in a comma-separated manner in chain function. You can also use it to combine more than two querysets.
+* combined_list = list(chain(query_set_1, query_set_2, query_set_3))
+* There is an issue with this approach, you won't get a queryset, you’ll get a list containing instances.
