@@ -44,17 +44,8 @@ malicious attacks as well.
     * Follow MVC-MVT Architecture
 
 What is MVC-MVT Architecture?
+![image](https://user-images.githubusercontent.com/22426280/230565377-e7d73727-f388-4f10-b534-2402d3767f5d.png)
 
-
-   USER        <<=========>>      django
-                                    ||
-                                    ||
-                                    ||
-      VIEW      <<=========>>      URL
-    ||     ||
-    ||     ||
-    ||     ||
-  MODEL  TEMPLATE
 
     * It is slightly different from MVC, in fact the main difference between the two is that Django takes care of
       the Controller part itself.
