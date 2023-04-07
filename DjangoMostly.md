@@ -18,6 +18,8 @@ For Example:
   * Here, a user requests for a resource to the Django, Django works as a controller and check to the available resource in URL.
   * When Django server is started, the manage.py file searches for settings.py file, which contains information of all the 
     applications installed in the project, middleware used, database connections and path to the main urls config.
+    ![image](https://user-images.githubusercontent.com/22426280/230561740-cdc3c5d2-bbef-4e26-af2f-49d80c6b67fb.png)
+
   #### Manage.py >> Setting.py >> urls.py >> views.py >> models.py >> templates
       Django first determines which root URLconf or URL configuration module is to be used
       Then, that particular Python module urls is loaded and then Django looks for the variable urlpatterns
@@ -154,19 +156,162 @@ There are three main things required to set up static files in Django:
       This will copy all files from your static folders into the STATIC_ROOT directory.
   3) set up a Static Files entry on the PythonAnywhere web tab
 
+# What Are The Advantages And Disadvantages Of Using Django?
+   * Django is a Python's framework which is easy to learn.
+   * Django follows the DRY or the Don’t Repeat Yourself Principle which means, one concept or a piece of data should live in just 
+     one place
+   * Django Offers Better CDN connectivity and Content Management
+   * Django is a Batteries Included Framework
+   * Django Offers Rapid-development
+   * Django is highly Scalable
+   * Django provide high Security
+   * Django facilitates you to divide code modules into logical groups to make it flexible to change.
+   * Django provides auto-generated web admin to make website administration easy.
+   * Django provides template system to define HTML template for your web page to avoid code duplication.
+   * Django enables you to separate business logic from the HTML.
+
+# What Are The Advantages And Disadvantages Of Using Django?
+   * Django is Monolithic. You must know the full system to work with it.
+   * Django's monolithic size makes it unsuitable for smaller projects
+   * Everything must be explicitly defined due to a lack of convention.
+   * Django's modules are bulky.
+   * Django is completely based on Django ORM.
+   * Components are deployed together.
+
+# What is django.shortcuts.render function?
+* The basic syntax:
+    render(request, template_name, context=None, content_type=None, status=None, using=None)
+
+      The request is the parameter that generates the response. 
+      The template name is the HTML template used.
+      The context is a dict of the data passed on the page from the python.
+      You can also specify the content type, 
+      The status of the data you passed, 
+      And the render you are returning.
+
+# What Is The Significance Of manage.py File In Django?
+   * The manage.py file is automatically generated whenever you create a project. 
+   * This is basically a command-line utility that helps you to interact with your Django project in various ways. 
+   * It does the same things as django-admin but along with that, it also sets the DJANGO_SETTINGS_MODULE environment variable in order to       point to your project’s settings. 
+   * When Django server is started, the manage.py file searches for settings.py file, which contains information of all the applications         installed in the project, middleware used, database connections and path to the main urls config
+
+# What Is The Use Of The “include” Function In The urls.py File In Django?
+   * As in Django there can be many apps, each app may have some URLs that it responds to. 
+   * Rather than registering all URLs for all apps in a single urls.py file, each app maintains its own urls.py file, and in 
+     the project’s urls.py file we use each individual urls.py file of each app by using the include function.
+#### Example:
+```
+nitman -- urls.py
+
+    from django.contrib import admin  
+    from django.urls import path, include
+
+    urlpatterns = [  
+        path('admin/', admin.site.urls),  
+        path('nitapp/', include('nitapp.urls')),  
+        path('myapp/', include('myapp.urls')),  
+    ]  
+```
+```
+nitapp -- urls.py
+
+    from django.urls import path
+    from . import views
+
+    urlpatterns = [  
+        path('', views.index),  # nitapp homepage
+    ]     
+
+```
+```
+myapp -- urls.py
+
+    from django.urls import path
+    from . import views
+
+    urlpatterns = [  
+        path('', views.index),  # myapp homepage
+    ]  
+
+```
+
+# What Is Context In Django?
+   * A context in Django is a dictionary, in which keys represent variable names and values represent their values. This dictionary              (context) is passed to the template which then uses the variables to output the dynamic content.
+   * A context is a variable name -> variable value mapping that is passed to a template.
+   * Context processors let you specify a number of variables that get set in each context automatically – without you having to specify        the variables in each render() call.
+   
+# What Is The Difference Between Django OneToOneField & ForeignKey Field?
+   * __ForeignKey Field__: A many-to-one relationship. Requires two positional arguments: the class to which the model is related and the on_delete option.
+
+   * __OneToOneField__: A one-to-one relationship. Conceptually, this is similar to a ForeignKey with unique=True, but the “reverse” side of the relation will directly return a single object.
+
+
+# What Is A Middleware In Django?
+   * Middleware is something that executes between the request and response. 
+   * In simple words, you can say it acts as a bridge between the request and response. 
+   * Middleware in the Django framework is the component that operates on request and transfers it to the view and before passing it to the     template engine, it starts operating on a response. 
+   * Django provides various built-in middleware and also allows us to write our own middleware. 
+
+            // settings.py
+            MIDDLEWARE = [  
+                'django.middleware.security.SecurityMiddleware',  
+                'django.contrib.sessions.middleware.SessionMiddleware',  
+                'django.middleware.common.CommonMiddleware',  
+                'django.middleware.csrf.CsrfViewMiddleware',  
+                'django.contrib.auth.middleware.AuthenticationMiddleware',  
+                'django.contrib.messages.middleware.MessageMiddleware',  
+                'django.middleware.clickjacking.XFrameOptionsMiddleware',  
+            ] 
+ ####  Some usage of Middlewares in Django is:
+         Session management,
+         Use authentication
+         Cross-site request forgery protection(CSRF)
+         Content Gzipping
+
+# What Is Sessions In Django?
+   * Sessions are fully supported in Django.
+   * Using the session framework, you can easily store and retrieve arbitrary data based on the per-site-visitors.
+   * This framework basically stores data on the server-side and takes care of sending and receiving cookies. 
+   * These cookies consist of a session ID but not the actual data itself unless you explicitly use a cookie-based backend.
+   * A session is a mechanism to store information on the server side during the interaction with the web application. 
+   * By default, session stores in the database and also allows file-based and cache based sessions.
+
+# What Are Django Signals?
+      Django consists of a signal dispatcher that helps allow decoupled applications to get notified when actions occur elsewhere in the framework. 
+      Django provides a set of built-in signals that basically allow senders to notify a set of receivers when some action is executed.
+      They’re especially useful when many pieces of code may be interested in the same events.
+
+      Two important parameters in signals are as follows:
+
+      Receiver: It specifies the callback function which connected to the signal.
+      Sender: It specifies a particular sender from where a signal is received.
+#### List of built-in signals in the models:
+<img width="500" alt="Screenshot 2023-04-07 at 12 47 49 PM" src="https://user-images.githubusercontent.com/22426280/230561594-91b21e4c-06e6-4921-9db7-b94abf3d5e11.png">
 
 
 
+# Explain Q objects in Django ORM?
+   * Q object django.db.models.Q is an object to encapsulate a collection of keyword arguments specified as FIELD LOOKUPS.
+   * Q objects are used to write complex queries, as in filter() functions just "AND" the conditions while if you want to "OR" the conditions   you can use Q objects. 
+   * Let’s see an example:
+   ```
+         from django.db import models
+         from django.db.models import Q
+         Models.objects.get( Q(question__startswith='When'), Q(answer__startswith='On')  | Q(answer__startswith='At') )
+   ```
+   * [Q Objects can be combined with the help of the | and & operators to get a new Q Object]
+   * This is equivalent to the following SQL WHERE Clause:
+         SELECT * FROM Model WHERE question LIKE ‘When%’ And (answer="On%" OR answer="At%")
 
+# What Is Serialization In Django?
+__Serialization__ is the process of converting Django models into other formats such as XML, JSON, etc.
 
-
-
-
-
-
-
-
-
-
-
-
+# What Is Mixin?
+__Mixin__ is a type of multiple inheritance wherein you can combine behaviors and attributes of more than one parent class.
+Django provides a number of mixins that provide more discrete functionality. 
+Different type of mixins are -
+* __ContextMixin__ - A dictionary to include in the context and is a convenient way of specifying the simple context in as_view().
+* __TemplateResponseMixin__ - Given a suitable context, TemplateResponseMixin provides a mechanism to construct a TemplateRespons and the     template to use is configurable and can be further customized by a subclass.
+* __SingleObjectMixin__ - SingleObjetMixin provides a mechanism for looking up an object associated with the current HTTP request.
+* __SingleObjectTemplateMixin__ - SingleObjetTemplateMixin performs template base response rendering for view that operate upon a single     object instance. 
+* __MutlipleObjectMixin__ - MultipleObjectMixin used to display list of objects
