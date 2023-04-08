@@ -2,8 +2,9 @@
 
 ## Intro -:
 ### MongoDB is a document database. It stores data in a type of JSON format called BSON.
-    A record in MongoDB is a document, which is a data structure composed of key value pairs similar to the structure of JSON objects.
-    Records in a MongoDB database are called documents, and the field values may include numbers, strings, booleans, arrays, or even nested documents.
+The MongoDB Query API is the way you will interact with your data.
+A record in MongoDB is a document, which is a data structure composed of key value pairs similar to the structure of JSON objects.
+Records in a MongoDB database are called documents, and the field values may include numbers, strings, booleans, arrays, or even nested documents.
     
 #### The MongoDB Query API can be used two ways:
       CRUD Operations
