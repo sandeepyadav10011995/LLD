@@ -22,11 +22,11 @@ __Candidate__: It is the ability of a transaction to fail or pass completely wit
                transaction is atomicity. Herein, we can consider that the transaction was aborted and no change happened at all.
 
 ## Is atomicity related to concurrency?
--> __No__, it is not about concurrency.
--> That is covered under __Isolation__, I in ACID properties.
+* No, it is not about concurrency.
+* That is covered under __Isolation__, I in ACID properties.
 
 ## Interviewer: What is a transaction in database?
-__Candidate__: Transaction is a logical unit to group multiple reads and writes together in one operation.
+__Candidate__: __Transaction__ is a logical unit to group multiple reads and writes together in one operation.
 
 ## What does 𝗜𝘀𝗼𝗹𝗮𝘁𝗶𝗼𝗻 means in 𝑨𝑪𝑰𝑫 properties of a database?
 𝑨𝑪𝑰𝑫 => 𝗔𝘁𝗼𝗺𝗶𝗰𝗶𝘁𝘆, 𝗖𝗼𝗻𝘀𝗶𝘀𝘁𝗲𝗻𝗰𝘆, 𝗜𝘀𝗼𝗹𝗮𝘁𝗶𝗼𝗻 𝗮𝗻𝗱 𝗗𝘂𝗿𝗮𝗯𝗶𝗹𝗶𝘁𝘆
