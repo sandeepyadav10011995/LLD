@@ -4,7 +4,7 @@
    have worked in the industry and faced the problem yourself as it takes $12-30 to manually process one single paper invoice. 
    ___The manual process is extremely manual, tedious, and error-prone.___
 2) __Payments__ -: (If you’re reading this from India and wondering why this is a big deal - US is nowhere close to India in terms of digital payments, 
-   and this is a big deal. People still write cheques in the US :)). In terms of dollar values, we help our customers digitize hundreds of millions of 
+   and this is a big deal. People still write cheques in the US 😭). In terms of dollar values, we help our customers digitize hundreds of millions of 
    dollars of invoices every month! We help them pay those right through our platform.
 3) __Insights__ -: If you asked us, say, about the price range of cherry tomatoes in New York City within a given date range, it’s likely we’ll have a 
    pretty accurate picture there. If you (as a business) asked us which of your locations (retail outlets) was paying the most for those tomatoes, we’ll 
