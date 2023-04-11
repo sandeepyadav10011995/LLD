@@ -338,11 +338,11 @@ ___Some of The Most Important SQL Commands___
        ```
 
 * Write a SQL Query to "Employee Project Budgets: Find the top five most expensive projects by the amount of amount of budget alloacted to each employee on the project. Excludes project with 0 employees. Assume each employee works on only one project. The output should be the project title and the budget that's allocated to each employee (i.e, budget-to-employee-ratio). Display the top 5 projects with the highest budget-to-employee ratio first."
-   * Assumptions -: 
+   * __Assumptions__ -: 
       * ms_projects : id | title | budget
       * ms_emp_projects : emp_id | project_id
 
-   * Solution Strategy -:
+   * __Solution Strategy__ -:
       * INNER JOIN ms_projects and ms_emp_projects
       * GROUP BY title
       * budget/COUNT(employee)
@@ -350,7 +350,7 @@ ___Some of The Most Important SQL Commands___
       * LIMIT 5
       * Final Table : project | budget_emp_ratio = budget/count(employee)
 
-   * Final Query
+   * __Final Query__
        ```
           SELECT title AS project,
                  budget/COUNT(emp_id) AS budget_emp_ratio
@@ -368,17 +368,17 @@ ___Some of The Most Important SQL Commands___
    *  6 to 15 reviews : SOME
    *  16 to 40 reviews : MANY
    *  more than 40 reviews : ALOT
-   * Assumptions -: 
+   * __Assumptions__ -: 
       * airbnb_search_details
 
-   * Solution Strategy -:
+   * __Solution Strategy__ -:
       * do classification -> CASE
       * GROUP BY qualification category
       * Aggregate min, avg, max price
       * CTE
       * Final Table : review_qualification | min | avg | max
 
-   * Final Query
+   * __Final Query__
        ```
           WITH reviews AS
                (SELECT CASE
@@ -398,16 +398,16 @@ ___Some of The Most Important SQL Commands___
        ```
  
  * Write a SQL Query to "Average Percentile: Find the email activity percentile for each user. email activity percentile is defined by the total number of emails sent. The user with the highest number of emails sent will have a percentile of 1 and so on. Ouput the user, total emails and their activity percentile and orders records by the total emails in descending order."
-   * Assumptions -: 
+   * __Assumptions__ -: 
       * google_gmail_emails : id | from_user | to_user | day
 
-   * Solution Strategy -:
+   * __Solution Strategy__ -:
       * GROUP By from_user
       * COUNT(*)
       * ROW_NUMBER -> WINDOW FUNCTION
       * Final Table : user | tital_emails | ntile
 
-   * Final Query
+   * __Final Query__
        ```
           SELECT from_user,
                  COUNT(*) AS total_emails,
@@ -427,10 +427,10 @@ ___Some of The Most Important SQL Commands___
        ```
        
 * Write a SQL Query to "GROWTH OF AIRBNB : Estimate the growth of Airbnb each year using the number of hosts registered as the growth metric. The rate of grwoth is calculated by taking ((number of hosts registered in the current year - number of hosts registered in the previous year)/(number of hosts registered in the previous year) mul by 100"
-   * Assumptions -: 
+   * __Assumptions__ -: 
       * airbnb_search_details : 
 
-   * Solution Strategy -:
+   * __Solution Strategy__ -:
       * get year  and num_hosts
       * left self join on prev_year = curr_year-1
       * curr_year | num_hosts_curr | num_hosts_prev | growth_rate
@@ -439,7 +439,7 @@ ___Some of The Most Important SQL Commands___
       * Order BY curr_year
       * Final Table : year | num_hosts_curr | num_hosts_prev | growth_rate
 
-   * Final Query
+   * __Final Query__
        ```
           WITH registers AS
                (SELECT EXTRACT(year FROM hosts_since) AS year,
