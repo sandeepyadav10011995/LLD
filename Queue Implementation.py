@@ -40,14 +40,50 @@ Threads:
 
 Classes:
     1. Message
+         - data: str
     2. ISubscriber
+         - name: str
+         - sleep_time: float
+         + consume(message: Message, offset: int) -> None
     3. SleepingSubscriber
+         + consume(message: Message, offset: int) -> None
     4. TopicSubscriber
+         - subscriber: Subscriber
+         - offset: int
+         + reset_offset() -> None
+         + increment_offset(prev_offset: int) -> None
     5. Topic - Needs Lock to allow writing messages in order
+         - name: str
+         - messages: list[Messages]
+         - subscribers = list[Subscriber]
+         - lock = threading.Lock()
+         + add_message(message: str) -> None
+         + add_subscriber(subscriber: TopicSubscriber) -> None
     6. TopicHandler
-    7. SubscriberWorker - Condition(wait, notify) with Lock to consume till
-            current offset and wait until new message is published.
+         - topic: Topic, workers: int
+         # create thread pool to for concurrent message handling
+         - thread_pool = concurrent.futures.ThreadPoolExecutor(workers)
+         - t_subscribers = {}
+         + shutdown() -> None
+         + publish() -> None
+         + start_subscriber_worker(t_sub: TopicSubscriber) -> None
+    7. SubscriberWorker - Condition(wait, notify) with Lock to consume till current offset and wait until new message is published.
+         - topic: Topic
+         - topic_sub: TopicSubscriber
+         - condition = threading.Condition()
+         - exit: bool = False
+         + terminate() -> None
+         + notify() -> None
+         + poke() -> None
     8. MessagingService
+         - topic_handlers = {}
+         - threads = []
+         + __enter__ -> None
+         + __exit__ -> None
+         + create_topic(name: str) -> None
+         + subscribe(sub_name: str, topic: Topic) -> None
+         + publish(topic: Topic, msg: str) -> None
+         + reset_offset(topic: Topic, subscriber: ISubscriber, offset: int) -> bool
 
 """
 import time
