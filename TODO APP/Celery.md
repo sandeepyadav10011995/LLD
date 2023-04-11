@@ -4,12 +4,12 @@ You have many dishes to make and a lot of ingredients to chop, cook and mix.
 However, you can only work on one dish at a time, and if you spend too much time on one dish, the other dishes will be late and your guests 
 will be hungry and upset.
 
-This is where Celery comes in. It's like having some helpers in the kitchen who can chop, cook and mix the ingredients for you, 
+This is where __Celery comes in. It's like having some helpers in the kitchen who can chop, cook and mix the ingredients for you, 
 while you work on something else. So, you can tell Celery to handle some tasks for you, such as chopping vegetables or cooking meat, 
-and it will do it in the background, while you work on another task, like mixing the sauce or setting the table.
-___This way, you can get everything done much faster and efficiently, and your guests will be happy with their delicious meal.___
+and it will do it in the background__, while you work on another task, like mixing the sauce or setting the table.
+This way, you can get everything done much faster and efficiently, and your guests will be happy with their delicious meal.
 
-__In Python, Celery__ is a library that allows you to create background tasks and run them asynchronously, so you can handle multiple tasks 
+__In Python, Celery__ is a library that allows you to __create background tasks and run them asynchronously__, so you can handle multiple tasks 
 at the same time without blocking your main program. 
 It's like having a team of workers in your program who can help you get things done quickly and efficiently.
 
