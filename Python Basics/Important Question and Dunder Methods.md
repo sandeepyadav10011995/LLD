@@ -1,4 +1,5 @@
 ## 𝐃𝐮𝐧𝐝𝐞𝐫 𝐦𝐞𝐭𝐡𝐨𝐝𝐬 𝐢𝐧 𝐏𝐲𝐭𝐡𝐨𝐧
+    __enter__: when it is entered with with statement
     __call__ : makes an instance callable
     __init__ : called when an object is initialized
     __new__ : called when an object is created
