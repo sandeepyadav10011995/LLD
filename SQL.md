@@ -77,6 +77,7 @@ ___Some of The Most Important SQL Commands___
    FROM table_name AS alias_name;
    ```
 * __JOIN__ clause is used to combine rows from two or more tables, based on a related column between them.
+   * ![image](https://user-images.githubusercontent.com/22426280/231045734-7bd655f0-1d1f-4766-9c6f-cef33ba8769d.png)
 * __UNION__ operator is used to combine the result-set of two or more SELECT statements.
    * Every SELECT statement within UNION must have the same number of columns
    * The columns must also have similar data types
