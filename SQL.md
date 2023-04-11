@@ -220,17 +220,17 @@ ___Some of The Most Important SQL Commands___
  
 # SQL Questions:
 * Write a SQL Query to count the number of unique users who logged in from both iPhone and web where iPhone Logs and web logs are in Distinct relations.
-   * Assumptions -: 
+   * __Assumptions__ -: 
       * iphone : ts | userId | iphoneSessionId
       * web :    ts | userId | webSessionId
 
-   * Solution Strategy -:
+   * __Solution Strategy__ -:
       * join web and iphone tables
       * Match by day(ts) and userId
       * Group By day and count numUsers
       * Final Table : day | numUsers
 
-   * Final Query
+   * __Final Query__
        ```
           SELECT DATE_TRUNC('day', i.ts) AS day,
                  COUNT(DISTINCT i.userId) AS numUsers
@@ -241,16 +241,16 @@ ___Some of The Most Important SQL Commands___
           GROUP BY 1
        ```
 * Write a SQL Query to "Find the business and the reviews_text that received the highest number of "cool" votes"
-   * Assumptions -: 
+   * __Assumptions__ -: 
       * yelp_reviews : business_name | review_text | review_id | user_id | cool | funny | ...
 
-   * Solution Strategy -:
+   * __Solution Strategy__ -:
       * ORDER BY cool DESC
       * SELECT business_name, review_text
       * LIMIT 1
       * Final Table : business_name | review_text
 
-   * Final Query
+   * __Final Query__
        ```
           SELECT business_name, 
                  review_text
@@ -259,15 +259,15 @@ ___Some of The Most Important SQL Commands___
           LIMIT 1
        ```
  * Write a SQL Query to "Number of conversations by each user". Find out the number of conversations (send or receive) by each user by date
-   * Assumptions -: 
+   * __Assumptions__ -: 
       * fb_messages : id | date | user1 | user2 | msg_count
 
-   * Solution Strategy -:
+   * __Solution Strategy__ -:
       * Get msg_count from received
       * Union ALL with Sent
       * Final Table : date | user1 | msg_count
 
-   * Final Query
+   * __Final Query__
        ```
           (SELECT date, 
                  user1,
@@ -281,16 +281,16 @@ ___Some of The Most Important SQL Commands___
        ```
  
 * Write a SQL Query to "Find out the overall friend acceptance rate for each day."
-   * Assumptions -: 
+   * __Assumptions__ -: 
       * friend_requests : ds | sender | receiver | action(SENT, ACCEPTED, REJECTED ETC..)
       * 
 
-   * Solution Strategy -:
+   * __Solution Strategy__ -:
       * GROUP By ds
       * accepted/COUNT(actions)*100
       * Final Table : ds | friend_acceptance_rate --> ACCEPTED/TOTAL *100
 
-   * Final Query
+   * __Final Query__
        ```
           SELECT ds,
                  COUNT(
@@ -302,12 +302,12 @@ ___Some of The Most Important SQL Commands___
        ```
  
 * Write a SQL Query to "DOWNLOAD FACTS : Find the total number of downloads for paying and non-paying users by date and include only records where non-paying customers have more downloads than payong customers. The output should be sorted by earliest date first and contain 3 columns date, non-paying downloads, paying downloads "
-   * Assumptions -: 
+   * __Assumptions__ -: 
       * ms_user_dimensions : user_id | acc_id
       * ms_acc_dimensions : user_id | paying_customers
       * ms_downbloads_facts : date | user_id | downloads
 
-   * Solution Strategy -:
+   * __Solution Strategy__ -:
       * join ms_user_dimensions, ms_acc_dimensions, ms_downbloads_facts
       * GROUP BY date
       * SUM all downloads for paying and non-paying customers
@@ -315,7 +315,7 @@ ___Some of The Most Important SQL Commands___
       * non-paying customers > paying customers
       * Final Table : date | non-payng downloads | paying downloads
 
-   * Final Query --> common table expression (CTE)
+   * __Final Query__ --> common table expression (CTE)
        ```
           WITH temp AS(
                SELECT date,
