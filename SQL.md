@@ -124,3 +124,28 @@ ___Some of The Most Important SQL Commands___
           ELSE result
       END;
    ```
+
+## SQL Procedure
+* A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
+* Syntax -:
+   ```
+   CREATE PROCEDURE procedure_name
+   AS
+   sql_statement
+   GO;
+   EXEC procedure_name;
+   
+   --------------EXAMPLE----------------------
+   CREATE PROCEDURE SelectAllCustomers
+   AS
+   SELECT * FROM Customers
+   GO;
+   
+   Execute the stored procedure above as follows:
+   Example
+   EXEC SelectAllCustomers;
+   ```
+## SQL Comments
+   * Single line comments start with --
+   * Multi-line comments start with /* and end with */ 
+
