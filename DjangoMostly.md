@@ -315,3 +315,11 @@ Different type of mixins are -
 * __SingleObjectMixin__ - SingleObjetMixin provides a mechanism for looking up an object associated with the current HTTP request.
 * __SingleObjectTemplateMixin__ - SingleObjetTemplateMixin performs template base response rendering for view that operate upon a single     object instance. 
 * __MutlipleObjectMixin__ - MultipleObjectMixin used to display list of objects
+
+# Explain all the process behind delete a row in a web app using Django.
+To delete a row in a web app using Django, you need to follow these general steps:
+* Create a view for the delete operation
+* Create a template for the delete confirmation page
+* Add a URL pattern for the delete view
+* Implement the delete operation in the view
+
