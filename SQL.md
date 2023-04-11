@@ -240,7 +240,7 @@ ___Some of The Most Important SQL Commands___
                AND DATE_TRUNC('day', i.ts) = DATE_TRUNC('day', w.ts)
           GROUP BY 1
        ```
-* Write a SQL Query to "Find the business and the reviews_text that received the highest number of "cool" votes"
+* __Write a SQL Query to "Find the business and the reviews_text that received the highest number of "cool" votes"__
    * __Assumptions__ -: 
       * yelp_reviews : business_name | review_text | review_id | user_id | cool | funny | ...
 
