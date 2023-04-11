@@ -218,4 +218,47 @@ ___Some of The Most Important SQL Commands___
 * A view can be updated with the __CREATE OR REPLACE VIEW__ statement.
 * A view is deleted with the __DROP VIEW__ statement.
  
+# SQL Questions:
+* Write a SQL Query to count the number of unique users who logged in from both iPhone and web where iPhone Logs and web logs are in Distinct relations.
+   * Assumptions -: 
+      * iphone : ts | userId | iphoneSessionId
+      * web :    ts | userId | webSessionId
+
+   * Solution Strategy -:
+      * join web and iphone tables
+      * Match by day(ts) and userId
+      * Group By day and count numUsers
+      * Final Table : day | numUsers
+
+   * Final Query
+       ```
+          SELECT DATE_TRUNC('day', i.ts) AS day,
+                 COUNT(DISTINCT i.userId) AS numUsers
+          FROM iphone i
+          JOIN web w
+               ON i.userdId = w.userId
+               AND DATE_TRUNC('day', i.ts) = DATE_TRUNC('day', w.ts)
+          GROUP BY 1
+       ```
+* Write a SQL Query to "Find the business and the reviews_text that received the highest number of "cool" votes"
+   * Assumptions -: 
+      * yelp_reviews : business_name | review_text | review_id | user_id | cool | funny | ...
+
+   * Solution Strategy -:
+      * ORDER BY cool DESC
+      * SELECT business_name, review_text
+      * LIMIT 1
+      * Final Table : business_name | review_text
+
+   * Final Query
+       ```
+          SELECT business_name, 
+                 review_text
+          FROM yelp_reviews
+          ORDER BY cool DESC
+          LIMIT 1
+       ```
+ 
+ 
+ 
  
