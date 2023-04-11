@@ -78,12 +78,17 @@ Classes:
     8. MessagingService
          - topic_handlers = {}
          - threads = []
-         + __enter__ -> None
+         + __enter__ -> None :: __enter__: when it is entered with with statement
          + __exit__ -> None
          + create_topic(name: str) -> None
          + subscribe(sub_name: str, topic: Topic) -> None
          + publish(topic: Topic, msg: str) -> None
          + reset_offset(topic: Topic, subscriber: ISubscriber, offset: int) -> bool
+
+Note-:
+__init__ (allocation of the class)
+__enter__ (enter context)
+__exit__ (leaving context)
 
 """
 import time
