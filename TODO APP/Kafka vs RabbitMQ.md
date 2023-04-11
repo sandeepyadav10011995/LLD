@@ -1,9 +1,8 @@
 ## Analogy -:
-   Imagine you have a bunch of friends who want to share messages with each other. Kafka and RabbitMQ are both tools that help your friends share messages, but they work in different ways.
-   Kafka is like a bulletin board where your friends can post notes for each other. They can post as many notes as they want, and they'll stay on the board until someone reads them. Kafka is really good at handling lots of messages at once, so it's great for big groups of friends who want to share lots of information.
-   RabbitMQ, on the other hand, is like a mailbox system where your friends can send letters to each other. Each letter has a specific recipient, and RabbitMQ makes sure that each letter gets to the right person. RabbitMQ is really good at making sure that messages get delivered to the right place at the right time, so it's great for groups of friends who want to have private conversations with each other.
-
-   So, Kafka is like a bulletin board where messages can be posted and read by many people, and RabbitMQ is like a mailbox system where messages are sent and received by specific individuals.
+* Imagine you have a bunch of friends who want to share messages with each other. Kafka and RabbitMQ are both tools that help your friends share        messages, but they work in different ways.
+* Kafka is like a bulletin board where your friends can post notes for each other. They can post as many notes as they want, and they'll stay on the   board until someone reads them. Kafka is really good at handling lots of messages at once, so it's great for big groups of friends who want to       share lots of information.
+* RabbitMQ, on the other hand, is like a mailbox system where your friends can send letters to each other. Each letter has a specific recipient, and   RabbitMQ makes sure that each letter gets to the right person. RabbitMQ is really good at making sure that messages get delivered to the right       place at the right time, so it's great for groups of friends who want to have private conversations with each other.
+* So, Kafka is like a bulletin board where messages can be posted and read by many people, and RabbitMQ is like a mailbox system where messages are   sent and received by specific individuals.
    
 ## Kafka vs RabbitMQ
    Kafka and RabbitMQ are both messaging systems that are commonly used in modern distributed systems. While they share 
