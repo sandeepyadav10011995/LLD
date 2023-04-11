@@ -1,4 +1,4 @@
-#### Terraform and Kubernetes are both tools used for managing computer infrastructure, but they serve different purposes.
+## Terraform and Kubernetes are both tools used for managing computer infrastructure, but they serve different purposes.
 
   __Terraform__ is used for __managing the underlying infrastructure, such as servers, databases, and networks__. It allows you to write code 
   that describes the resources you need to run your applications, and it can automatically create and manage those resources for you. 
