@@ -150,3 +150,51 @@ ___Some of The Most Important SQL Commands___
    * Single line comments start with --
    * Multi-line comments start with /* and end with */ 
 
+## BACKUP DB 
+* __BACKUP DATABASE__ statement is used in SQL Server to create a full back up of an existing SQL database.
+   * Syntax -:
+   ```
+      BACKUP DATABASE databasename
+      TO DISK = 'filepath';
+   ```
+* __BACKUP WITH DIFFERENTIAL__ -:A differential back up only backs up the parts of the database that have changed since the last full database backup. 
+   * Syntax -:
+   ```
+      BACKUP DATABASE databasename
+      TO DISK = 'filepath'
+      WITH DIFFERENTIAL;
+   ```
+## CHECK 
+* __CHECK__ constraint is used to limit the value range that can be placed in a column
+* Syntax -:
+   ```
+      CREATE TABLE Persons (
+          ID int NOT NULL,
+          LastName varchar(255) NOT NULL,
+          FirstName varchar(255),
+          Age int,
+          CHECK (Age>=18)
+      );
+   ```
+ 
+## AUTOINCREMENT
+* Auto-increment allows a unique number to be generated automatically when a new record is inserted into a table.
+* Often this is the primary key field that we would like to be created automatically every time a new record is inserted.
+
+## SQL VIEWS
+* A view is a virtual table based on the result-set of an SQL statement.
+* A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+* You can add SQL statements and functions to a view and present the data as if the data were coming from one single table.
+* A view is created with the CREATE VIEW statement. 
+* Syntax -:
+   ```
+      CREATE VIEW view_name AS
+      SELECT column1, column2, ...
+      FROM table_name
+      WHERE condition;
+   ```
+* __Note__: A view always shows up-to-date data! The database engine recreates the view, every time a user queries it.
+* A view can be updated with the __CREATE OR REPLACE VIEW__ statement.
+* A view is deleted with the __DROP VIEW__ statement.
+ 
+ 
