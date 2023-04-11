@@ -121,3 +121,22 @@ combined_list = list(chain(query_set_1,query_set_2))
 #### You just need to mention the querysets you want to combine in a comma-separated manner in chain function. You can also use it to combine more than two querysets.
 * combined_list = list(chain(query_set_1, query_set_2, query_set_3))
 * There is an issue with this approach, you won't get a queryset, you’ll get a list containing instances.
+
+#### How to revert the changes of migrations in Django
+* python manage.py showmigrations myapp
+* python manage.py migrate myapp <migration_name> --reverse
+
+#### How we can update the table config without creating a migrations
+* Update the model with the new table configuration
+    ```
+    class MyModel(models.Model):
+        my_field = models.CharField(max_length=50)
+
+        class Meta:
+            db_table = 'new_table_name'
+    ```
+* Run the migrate command with the --fake flag
+    * Run the migrate command with the --fake flag to tell Django that you have made changes to the database schema manually and that you         do not want to create a new migration
+
+
+
