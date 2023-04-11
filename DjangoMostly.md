@@ -319,7 +319,8 @@ Different type of mixins are -
 # Explain all the process behind delete a row in a web app using Django.
 To delete a row in a web app using Django, you need to follow these general steps:
 * Create a view for the delete operation
-   * To create a view for deleting a row, you need to import the necessary modules and define a function that handles the delete operation.    * The function should take the primary key (PK) of the row to be deleted as a parameter.
+   * To create a view for deleting a row, you need to import the necessary modules and define a function that handles the delete operation.
+   * The function should take the primary key (PK) of the row to be deleted as a parameter.
 * Create a template for the delete confirmation page
    * Create a template for the delete confirmation page where the user can confirm the deletion. 
    * The template should display the row data to be deleted and prompt the user to confirm the deletion.
