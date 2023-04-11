@@ -125,6 +125,27 @@ ___Some of The Most Important SQL Commands___
           ELSE result
       END;
    ```
+   
+### 
+* Window functions: Window functions are used to perform calculations on a specific window or subset of rows within a result set. 
+   * The most commonly used window functions include ROW_NUMBER(), RANK(), DENSE_RANK(), and NTILE(). 
+   * Here's an example of how to use the ROW_NUMBER() function:
+   ```
+      SELECT product_name, product_price, 
+          ROW_NUMBER() OVER (ORDER BY product_price DESC) AS rank
+      FROM products;
+   ```
+   * This query returns the product name, price, and the row number of each product based on its price, ordered from highest to lowest.
+* RANK: RANK is a ranking function that assigns a rank to each row within a result set based on a specified column. 
+   * If there are ties, the same rank is assigned to all rows with the same value. 
+   * Here's an example of how to use the RANK function:
+   ```
+      SELECT product_name, product_price, 
+       RANK() OVER (ORDER BY product_price DESC) AS rank
+      FROM products;
+   ```
+   * This query returns the product name, price, and the rank of each product based on its price, ordered from highest to lowest. 
+   * If there are two products with the same price, they will be assigned the same rank.
 
 ## SQL Procedure
 * A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again.
