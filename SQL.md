@@ -219,7 +219,7 @@ ___Some of The Most Important SQL Commands___
 * A view is deleted with the __DROP VIEW__ statement.
  
 # SQL Questions:
-* Write a SQL Query to count the number of unique users who logged in from both iPhone and web where iPhone Logs and web logs are in Distinct relations.
+* __Write a SQL Query to count the number of unique users who logged in from both iPhone and web where iPhone Logs and web logs are in Distinct relations.__
    * __Assumptions__ -: 
       * iphone : ts | userId | iphoneSessionId
       * web :    ts | userId | webSessionId
@@ -258,7 +258,7 @@ ___Some of The Most Important SQL Commands___
           ORDER BY cool DESC
           LIMIT 1
        ```
- * Write a SQL Query to "Number of conversations by each user". Find out the number of conversations (send or receive) by each user by date
+ * __Write a SQL Query to "Number of conversations by each user". Find out the number of conversations (send or receive) by each user by date__
    * __Assumptions__ -: 
       * fb_messages : id | date | user1 | user2 | msg_count
 
@@ -280,7 +280,7 @@ ___Some of The Most Important SQL Commands___
           FROM fb_messages)
        ```
  
-* Write a SQL Query to "Find out the overall friend acceptance rate for each day."
+* __Write a SQL Query to "Find out the overall friend acceptance rate for each day."__
    * __Assumptions__ -: 
       * friend_requests : ds | sender | receiver | action(SENT, ACCEPTED, REJECTED ETC..)
       * 
@@ -301,7 +301,7 @@ ___Some of The Most Important SQL Commands___
           GROUP By 1
        ```
  
-* Write a SQL Query to "DOWNLOAD FACTS : Find the total number of downloads for paying and non-paying users by date and include only records where non-paying customers have more downloads than payong customers. The output should be sorted by earliest date first and contain 3 columns date, non-paying downloads, paying downloads "
+* __Write a SQL Query to "DOWNLOAD FACTS : Find the total number of downloads for paying and non-paying users by date and include only records where non-paying customers have more downloads than payong customers. The output should be sorted by earliest date first and contain 3 columns date, non-paying downloads, paying downloads "__
    * __Assumptions__ -: 
       * ms_user_dimensions : user_id | acc_id
       * ms_acc_dimensions : user_id | paying_customers
@@ -337,7 +337,7 @@ ___Some of The Most Important SQL Commands___
           WHERE non_paying > paying
        ```
 
-* Write a SQL Query to "Employee Project Budgets: Find the top five most expensive projects by the amount of amount of budget alloacted to each employee on the project. Excludes project with 0 employees. Assume each employee works on only one project. The output should be the project title and the budget that's allocated to each employee (i.e, budget-to-employee-ratio). Display the top 5 projects with the highest budget-to-employee ratio first."
+* __Write a SQL Query to "Employee Project Budgets: Find the top five most expensive projects by the amount of amount of budget alloacted to each employee on the project. Excludes project with 0 employees. Assume each employee works on only one project. The output should be the project title and the budget that's allocated to each employee (i.e, budget-to-employee-ratio). Display the top 5 projects with the highest budget-to-employee ratio first."__
    * __Assumptions__ -: 
       * ms_projects : id | title | budget
       * ms_emp_projects : emp_id | project_id
@@ -362,7 +362,7 @@ ___Some of The Most Important SQL Commands___
           LIMIT 5
        ```
 
-* Write a SQL Query to "Min, Avg, Max Price Per Review Qualification: Find the min, avg, max rental price for each review qualification category. The review qualification category is a classifcation applied to each rental property based on the number of reviews the property has. It is defined as below -:
+* __Write a SQL Query to "Min, Avg, Max Price Per Review Qualification: Find the min, avg, max rental price for each review qualification category. The review qualification category is a classifcation applied to each rental property based on the number of reviews the property has. It is defined as below -:__
    *  0 reviews : NO
    *  1 to 5 reviews : FEW
    *  6 to 15 reviews : SOME
@@ -397,7 +397,7 @@ ___Some of The Most Important SQL Commands___
           GROUP BY 1
        ```
  
- * Write a SQL Query to "Average Percentile: Find the email activity percentile for each user. email activity percentile is defined by the total number of emails sent. The user with the highest number of emails sent will have a percentile of 1 and so on. Ouput the user, total emails and their activity percentile and orders records by the total emails in descending order."
+ * __Write a SQL Query to "Average Percentile: Find the email activity percentile for each user. email activity percentile is defined by the total number of emails sent. The user with the highest number of emails sent will have a percentile of 1 and so on. Ouput the user, total emails and their activity percentile and orders records by the total emails in descending order."__
    * __Assumptions__ -: 
       * google_gmail_emails : id | from_user | to_user | day
 
@@ -426,7 +426,7 @@ ___Some of The Most Important SQL Commands___
           FROM temp
        ```
        
-* Write a SQL Query to "GROWTH OF AIRBNB : Estimate the growth of Airbnb each year using the number of hosts registered as the growth metric. The rate of grwoth is calculated by taking ((number of hosts registered in the current year - number of hosts registered in the previous year)/(number of hosts registered in the previous year) mul by 100"
+* __Write a SQL Query to "GROWTH OF AIRBNB : Estimate the growth of Airbnb each year using the number of hosts registered as the growth metric. The rate of grwoth is calculated by taking ((number of hosts registered in the current year - number of hosts registered in the previous year)/(number of hosts registered in the previous year) mul by 100"__
    * __Assumptions__ -: 
       * airbnb_search_details : 
 
