@@ -8,6 +8,6 @@ On the other hand, __Gunicorn (short for "Green Unicorn") is a Python Web Server
 designed to serve Python web applications and is compatible with a variety of Python web frameworks, such as Django and Flask. Gunicorn 
 can handle multiple requests concurrently and can be configured to scale horizontally by running multiple worker processes.
 
-In summary, while Unicorn and Gunicorn both serve the same purpose of deploying web applications, Unicorn is designed for Ruby on Rails 
+In summary, while __Unicorn and Gunicorn both serve the same purpose of deploying web applications__, Unicorn is designed for Ruby on Rails 
 applications and Gunicorn is designed for Python applications. Therefore, Gunicorn is the preferred choice when deploying Python web 
 applications.
