@@ -96,7 +96,7 @@ class InvoicePrinter:
 
 
 """
-O: Open/Closed Principle :: Open for Extension but Closed for Modification 
+O: Open/Closed Principle :: Open for Extension but Closed for Modification :: Solution: Interface
 Requirement :: Save the data into file
 Before.py
 """
