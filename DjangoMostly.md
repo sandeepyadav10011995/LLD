@@ -9,10 +9,10 @@
 
 The developer provides the model, the view, and the template then maps it to a URL, and finally, Django serves it to the user.
 For Example:
-    * Here, a user requests for a resource to the Django, Django works as a controller and check to the available resource in URL. 
-      (urls.py file)
-    * If URL maps, a view is called that interact with model and template, it renders a template.
-    * Django responds back to the user and sends a template as a response.
+ * Here, a user requests for a resource to the Django, Django works as a controller and check to the available resource in URL. 
+   (urls.py file)
+ * If URL maps, a view is called that interact with model and template, it renders a template.
+ * Django responds back to the user and sends a template as a response.
 
 # Explain How A Request Is Processed In Django?
   * Here, a user requests for a resource to the Django, Django works as a controller and check to the available resource in URL.
