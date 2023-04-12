@@ -97,9 +97,9 @@
             $push: Adds an element to an array
 
 ### Aggregation Pipelines
-Aggregation operations allow you to group, sort, perform calculations, analyze data, and much more.
-Aggregation pipelines can have one or more "stages". The order of these stages are important. 
-Each stage acts upon the results of the previous stage.
+* Aggregation operations allow you to group, sort, perform calculations, analyze data, and much more.
+* Aggregation pipelines can have one or more "stages". The order of these stages are important. 
+* Each stage acts upon the results of the previous stage.
 
         Example
         db.posts.aggregate([
