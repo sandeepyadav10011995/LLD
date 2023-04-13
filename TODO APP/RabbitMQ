@@ -1,7 +1,0 @@
-In this section, you will learn how the message flow RabbitMQ takes place. The following procedure is given below:
-
-The producer first publishes a message to an exchange with a specified type.
-Once the exchange receives the message, it is responsible for routing the message. The exchange routes the messages taking into consideration other parameters such as exchange type, routing key, etc.
-Now bindings are created from exchange to the RabbitMQ Queues. Each Queue has a name that helps in distinguishing the two. Then the exchange routes the message into Queues based on the attributes of the message.
-Once the messages are enqueued in the Queue, it remains there until they are handled by a consumer.
-The consumer then handles the message from the RabbitMQ Queue.
