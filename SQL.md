@@ -20,7 +20,7 @@ ___Some of The Most Important SQL Commands___
 * __DROP INDEX__ - deletes an index
 
 ## SQL Common Clauses
-* __SELECT DISTINCT__ statement is used to return only distinct (different) values.
+* __SELECT DISTINCT__ statement is used to return only distinct (different) values.Inside a table, a column often contains many duplicate values; and sometimes you only want to list the different (distinct) values.
 * __WHERE__ clause is used to filter records.
    * ```
      SELECT column1, column2, ...
