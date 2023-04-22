@@ -60,8 +60,8 @@ ___Some of The Most Important SQL Commands___
 * __COUNT()__ function returns the __number of rows__ that matches a specified criterion
 * __LIKE__ operator is used in a WHERE clause to search for a specified pattern in a column.
    * There are two wildcards often used in conjunction with the LIKE operator:
-     * The percent sign (%) represents zero, one, or multiple characters
-     * The underscore sign (_) represents one, single character
+     * The **percent sign (%)** represents zero, one, or multiple characters
+     * The **underscore sign (_)** represents one, single character
 * SQL aliases are used to give a table, or a column in a table, a temporary name.
    * Aliases are often used to make column names more readable.
    * An alias only exists for the duration of that query.
