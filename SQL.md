@@ -457,5 +457,17 @@ ___Some of The Most Important SQL Commands___
           ORDER BY 1    
        ```       
  
-
+In SQL, both DISTINCT and GROUP BY are used to retrieve unique values from a table or a result set. However, there are some differences between the two:
+  * DISTINCT is used to remove duplicates from a single column or a set of columns in the result set. It returns a distinct set of values for the selected column(s) while       maintaining the original order of the data. For example, the following query will return a list of unique countries from the customers table:
+  ```
+  SELECT DISTINCT country
+  FROM customers;
+  ```
+  * GROUP BY is used to group the rows in a table based on one or more columns, and perform aggregate functions on each group. It returns one row for each group, with the       group column(s) and the result of the aggregate function(s). For example, the following query will group the customers by country and return the number of customers in       each country:
+  ```
+  SELECT country, COUNT(*) as num_customers
+  FROM customers
+  GROUP BY country;
+  ```
+**In summary, DISTINCT is used to retrieve unique values from one or more columns, while GROUP BY is used to group rows based on one or more columns and perform aggregate functions on each group.**
  
