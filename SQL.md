@@ -127,7 +127,7 @@ ___Some of The Most Important SQL Commands___
    ```
    
 ### 
-* Window functions: Window functions are used to perform calculations on a specific window or subset of rows within a result set. 
+* **Window functions**: Window functions are used to perform calculations on a specific window or subset of rows within a result set. 
    * The most commonly used window functions include ROW_NUMBER(), RANK(), DENSE_RANK(), and NTILE(). 
    * Here's an example of how to use the ROW_NUMBER() function:
    ```
@@ -136,7 +136,7 @@ ___Some of The Most Important SQL Commands___
       FROM products;
    ```
    * This query returns the product name, price, and the row number of each product based on its price, ordered from highest to lowest.
-* RANK: RANK is a ranking function that assigns a rank to each row within a result set based on a specified column. 
+* **RANK**: RANK is a ranking function that assigns a rank to each row within a result set based on a specified column. 
    * If there are ties, the same rank is assigned to all rows with the same value. 
    * Here's an example of how to use the RANK function:
    ```
