@@ -16,8 +16,21 @@
 ## DIFFERENT PHASES OF Microservices
 
 #### 1. DECOMPOSITION
-* __By Business__
-* __By Sub-Domain__
+* __By Business Capabilty__
+   * __Example -: Online Order__
+   * Order Management
+   * Product Management
+   * Account Management
+   * Billing Management
+   * Payment Management 
+
+* __By Sub-Domain (DDD Domain Driven Design)__
+   * __Example -: Online Order__
+   * Lets say Order Management is one Domain
+   * Payments -: Services within this
+      * Forward Payment
+      * Reverse Payment
+      * Invoice Generation
 
 #### 2. DATABASE
 * __Shared Database__
@@ -34,6 +47,9 @@
 
 #### 6. OBSERVABILITY
 * __Monitoring__
+
+## Pattern Used to Convert Monolith to Microservices -: STRANGLER ~ GHOONTNA
+![image](https://user-images.githubusercontent.com/22426280/235950715-746da4f1-1567-480a-b645-f349ad0821b4.png)
 
 
 ## Microservices
