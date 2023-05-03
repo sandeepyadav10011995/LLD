@@ -1,4 +1,42 @@
-# Microservices
+# Microservice Architecture
+
+## Why Microservices Architecture is needed ?
+**Monolith or Legacy System Disadavantages -:**
+* Overload IDE
+* Scalaing is HARD -: As Continuous Integration(CI) Jobs needs to be fast which is not the case in Monolith.
+* Tightly coupled
+* Deployment Time -: Takes more time for deployment of another box to become hot.
+* Lets say I need to increase the capacity of one module1 then I will have to scale all the modules by bringing another box up (Entire application)
+
+**Microservices ~ Disadavantges -: "__As there is nothing as such as FREE LUNCH__"**
+* Should be loosely coupled -: Will increase the latency in some cases.
+* SLA's needs to monitored and handled -: Makes Debugging HARD.
+* Transaction Management -: HARD -: Solution is SAGA Pattern
+
+## DIFFERENT PHASES OF Microservices
+
+#### 1. DECOMPOSITION
+* __By Business__
+* __By Sub-Domain__
+
+#### 2. DATABASE
+* __Shared Database__
+* __Specific Database__
+
+#### 3. COMMUNICATION
+* __API's__
+* __EVENTS__
+
+#### 4. INTEGRATION
+* __API Gateways__
+
+#### 5. DEPLOYMENT
+
+#### 6. OBSERVABILITY
+* __Monitoring__
+
+
+## Microservices
 * Microservices architecture is an approach to building software systems as a collection of small, independent, and loosely coupled services that communicate with each other through APIs. 
 * Each service is responsible for a specific business capability, and can be developed, deployed, and scaled independently of other services.
 
