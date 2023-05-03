@@ -1,0 +1,56 @@
+# Microservices
+* Microservices architecture is an approach to building software systems as a collection of small, independent, and loosely coupled services that communicate with each other through APIs. 
+* Each service is responsible for a specific business capability, and can be developed, deployed, and scaled independently of other services.
+
+* __Here are some common patterns and best practices in microservices architecture:__
+
+1. __Single Responsibility Principle__: 
+    * Each microservice should have a single responsibility or business capability, and should not be responsible for more than one thing. 
+    * This allows for better separation of concerns and helps to keep services small and manageable.
+
+2. __API Gateway__: 
+    * An API Gateway is a service that sits between clients and the microservices, and acts as a reverse proxy, routing requests to the appropriate service. 
+    * It also provides features such as authentication, rate limiting, and caching.
+
+3. __Service Registry and Discovery__: 
+    * A Service Registry is a database that contains information about the microservices, such as their network location and API endpoints. 
+    * A Service Discovery mechanism allows microservices to dynamically locate and communicate with other services.
+
+4. __Event-Driven Architecture__: 
+    * An event-driven architecture involves using events to trigger and communicate between microservices. 
+    * Events can be used to notify other services about changes or updates, or to trigger background tasks.
+
+5. __Resilience Patterns__: 
+    * Resilience patterns such as Circuit Breakers, Retries, and Timeouts can be used to improve the robustness and fault-tolerance of microservices.
+
+6. __Continuous Delivery__: 
+    * Continuous Delivery is a software development practice that emphasizes rapid and frequent delivery of new software features and improvements. 
+    * It requires automated testing, deployment, and monitoring to ensure that changes can be quickly and safely deployed to production.
+
+7. __Containerization and Orchestration__: 
+    * Containerization technologies such as Docker allow for easy packaging and deployment of microservices. 
+    * Orchestration tools such as Kubernetes can be used to manage and scale the containers in a distributed environment.
+
+**By following these patterns and best practices, microservices architecture can provide a number of benefits such as scalability, resilience, flexibility, and agility.**
+
+## There are two ways of coordination sagas:
+#### Choreography - each local transaction publishes domain events that trigger local transactions in other services
+    An e-commerce application that uses this approach would create an order using a choreography-based saga that consists of the following steps:
+      1. The Order Service receives the POST /orders request and creates an Order in a PENDING state
+      2. It then emits an Order Created event
+      3. The Customer Service’s event handler attempts to reserve credit
+      4. It then emits an event indicating the outcome
+      5. The OrderService’s event handler either approves or rejects the Order
+    
+#### Orchestration - an orchestrator (object) tells the participants what local transactions to execute
+  An e-commerce application that uses this approach would create an order using an orchestration-based saga that consists of the following steps:
+    1. The Order Service receives the POST /orders request and creates the Create Order saga orchestrator
+    2. The saga orchestrator creates an Order in the PENDING state
+    3. It then sends a Reserve Credit command to the Customer Service
+    4. The Customer Service attempts to reserve credit
+    5. It then sends back a reply message indicating the outcome
+    6. The saga orchestrator either approves or rejects the Order
+    
+Website Link -: https://microservices.io/patterns/data/saga.html
+
+
