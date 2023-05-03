@@ -115,7 +115,8 @@
        4. The Customer Service attempts to reserve credit
        5. It then sends back a reply message indicating the outcome
        6. The saga orchestrator either approves or rejects the Order
-    
+  <img width="474" alt="Screenshot 2023-05-03 at 8 45 18 PM" src="https://user-images.githubusercontent.com/22426280/235960240-102fff65-a5a5-4449-976d-da436e0c799c.png">
+
 Website Link -: https://microservices.io/patterns/data/saga.html
 
 
