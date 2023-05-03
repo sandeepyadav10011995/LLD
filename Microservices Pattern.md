@@ -49,7 +49,7 @@
 * __Monitoring__
 
 ## Pattern Used to Convert Monolith to Microservices -: STRANGLER ~ GHOONTNA
-<img width="331" alt="Screenshot 2023-05-03 at 8 14 30 PM" src="https://user-images.githubusercontent.com/22426280/235951300-1993bdb2-d384-4699-832c-143c02ff1770.png">
+<img width="566" alt="Screenshot 2023-05-03 at 8 58 07 PM" src="https://user-images.githubusercontent.com/22426280/235963842-24838d34-a3c2-452d-bb9f-6c685b82fada.png">
 
 
 ## Microservices
@@ -96,7 +96,7 @@
   * <img width="382" alt="Screenshot 2023-05-03 at 8 24 44 PM" src="https://user-images.githubusercontent.com/22426280/235954462-b805647e-06f5-4748-bef8-2c50f7153172.png">
   * Database for each service
   * <img width="448" alt="Screenshot 2023-05-03 at 8 33 57 PM" src="https://user-images.githubusercontent.com/22426280/235957112-3d5d0781-a690-41f6-866b-d7e084a3df96.png">
-   
+
 **There are two ways of coordination sagas:**
 #### Choreography - each local transaction publishes domain events that trigger local transactions in other services
     An e-commerce application that uses this approach would create an order using a choreography-based saga that consists of the following steps:
