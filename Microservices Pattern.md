@@ -87,7 +87,17 @@
 
 **By following these patterns and best practices, microservices architecture can provide a number of benefits such as scalability, resilience, flexibility, and agility.**
 
-## There are two ways of coordination sagas:
+## SAGA Pattern -: Sequence of Local Transactions
+* Used for Data Management in Microservices
+  * Shared Database -> Common ACID Transactions
+    * Scaling issues -: Not Good w.r.t to this
+    * Modifying columns details (Delete) 
+  * Easy when dealing with transactions
+  * <img width="382" alt="Screenshot 2023-05-03 at 8 24 44 PM" src="https://user-images.githubusercontent.com/22426280/235954462-b805647e-06f5-4748-bef8-2c50f7153172.png">
+  * Database for each service
+  * <img width="448" alt="Screenshot 2023-05-03 at 8 33 57 PM" src="https://user-images.githubusercontent.com/22426280/235957112-3d5d0781-a690-41f6-866b-d7e084a3df96.png">
+   
+**There are two ways of coordination sagas:**
 #### Choreography - each local transaction publishes domain events that trigger local transactions in other services
     An e-commerce application that uses this approach would create an order using a choreography-based saga that consists of the following steps:
       1. The Order Service receives the POST /orders request and creates an Order in a PENDING state
@@ -95,7 +105,8 @@
       3. The Customer Service’s event handler attempts to reserve credit
       4. It then emits an event indicating the outcome
       5. The OrderService’s event handler either approves or rejects the Order
-    
+    <img width="404" alt="Screenshot 2023-05-03 at 8 41 40 PM" src="https://user-images.githubusercontent.com/22426280/235959230-828969cf-6224-428c-9d3f-2ad1404a6209.png">
+
 #### Orchestration - an orchestrator (object) tells the participants what local transactions to execute
      An e-commerce application that uses this approach would create an order using an orchestration-based saga that consists of the following steps:
        1. The Order Service receives the POST /orders request and creates the Create Order saga orchestrator
