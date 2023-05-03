@@ -49,7 +49,7 @@
 * __Monitoring__
 
 ## Pattern Used to Convert Monolith to Microservices -: STRANGLER ~ GHOONTNA
-![image](https://user-images.githubusercontent.com/22426280/235950971-7c7ea35f-d477-4358-9379-92ef8a5a1cc6.png)
+<img width="331" alt="Screenshot 2023-05-03 at 8 14 30 PM" src="https://user-images.githubusercontent.com/22426280/235951300-1993bdb2-d384-4699-832c-143c02ff1770.png">
 
 
 ## Microservices
