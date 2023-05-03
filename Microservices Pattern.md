@@ -105,7 +105,7 @@
       3. The Customer Service’s event handler attempts to reserve credit
       4. It then emits an event indicating the outcome
       5. The OrderService’s event handler either approves or rejects the Order
-    <img width="404" alt="Screenshot 2023-05-03 at 8 41 40 PM" src="https://user-images.githubusercontent.com/22426280/235959230-828969cf-6224-428c-9d3f-2ad1404a6209.png">
+  <img width="404" alt="Screenshot 2023-05-03 at 8 41 40 PM" src="https://user-images.githubusercontent.com/22426280/235959230-828969cf-6224-428c-9d3f-2ad1404a6209.png">
 
 #### Orchestration - an orchestrator (object) tells the participants what local transactions to execute
      An e-commerce application that uses this approach would create an order using an orchestration-based saga that consists of the following steps:
