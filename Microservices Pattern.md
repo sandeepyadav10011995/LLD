@@ -43,13 +43,13 @@
       5. The OrderService’s event handler either approves or rejects the Order
     
 #### Orchestration - an orchestrator (object) tells the participants what local transactions to execute
-  An e-commerce application that uses this approach would create an order using an orchestration-based saga that consists of the following steps:
-    1. The Order Service receives the POST /orders request and creates the Create Order saga orchestrator
-    2. The saga orchestrator creates an Order in the PENDING state
-    3. It then sends a Reserve Credit command to the Customer Service
-    4. The Customer Service attempts to reserve credit
-    5. It then sends back a reply message indicating the outcome
-    6. The saga orchestrator either approves or rejects the Order
+     An e-commerce application that uses this approach would create an order using an orchestration-based saga that consists of the following steps:
+       1. The Order Service receives the POST /orders request and creates the Create Order saga orchestrator
+       2. The saga orchestrator creates an Order in the PENDING state
+       3. It then sends a Reserve Credit command to the Customer Service
+       4. The Customer Service attempts to reserve credit
+       5. It then sends back a reply message indicating the outcome
+       6. The saga orchestrator either approves or rejects the Order
     
 Website Link -: https://microservices.io/patterns/data/saga.html
 
