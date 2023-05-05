@@ -14,11 +14,27 @@ Expectation -:
                 - Elevator Car
                 - Building
 
-    Patterns -: Strategy Design Pattern
+    Patterns -: Observer Design Pattern
+                Composite Design Pattern
                 State Design Pattern
+                Singleton Design Pattern
 
-
-    Requirements
+    Basic Requirements -:
+        1. The elevator can go up and down in a real-world fashion.
+            1. When elevator is going up or down, it will stop at all the floors that the users requested.
+            2. If the elevator received a request of going down while it is going up, the elevator will go to the 
+               highest floor in the current requests, and then go down.
+            3. Users can send requests at anytime.
+        2. Users can send requests to the elevator from both outside and inside the elevator.
+    
+    Example -: After understanding the requirement, we can start with our design. From the analysis above, we know 
+               that elevator needs to sort the requests by some kind of order. It’s not by timestamp, because if elevator 
+               is at floor 1, and customer A wants to go to floor 4, and B wants to go to floor 2, the elevator should not 
+               go to floor 4 first just because A sent the request first. Instead, the elevator should stop at floor 2 and 
+               let B out, then go to floor 4 to let A out. Thus, we know that the request should be sorted by the distance 
+               from the current floor and not by timestamp.
+    
+    Requirements -:
         1. Multiple elevator cars and floors are in building
         2. Max Floors and max Elevators
         3. Can have states
@@ -35,7 +51,7 @@ Expectation -:
         11. Service
                 - Downtime
 
-
+   
 
     Actors :
             Primary Actors -: Pasengers
@@ -104,6 +120,9 @@ Expectation -:
 
 
 
+The main structure that we use in this design is HEAP. 
+TC: It has a time complexity of O(nlogn). 
+SC: The space complexity is O(n).
 
 
 
