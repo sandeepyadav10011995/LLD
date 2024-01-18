@@ -2,11 +2,11 @@
 
   Dependency inversion and dependency injection are two concepts used in computer programming to make software more modular and easier to maintain.
 
-    Dependency Inversion means that instead of a module (or piece of code) depending on other modules directly, it should depend on an abstraction 
-    or interface. This makes the code more flexible because the module can work with different implementations of the abstraction.
+  Dependency Inversion means that instead of a module (or piece of code) depending on other modules directly, it should depend on an abstraction 
+  or interface. This makes the code more flexible because the module can work with different implementations of the abstraction.
 
-    Dependency Injection is a technique to achieve dependency inversion. It means that instead of creating objects inside a module, you pass them in
-    as arguments or set them as properties. This makes the code more testable and easier to change in the future.
+  Dependency Injection is a technique to achieve dependency inversion. It means that instead of creating objects inside a module, you pass them in
+  as arguments or set them as properties. This makes the code more testable and easier to change in the future.
 
 So, in simple terms, dependency inversion is a concept that says we should depend on abstractions, not implementations. Dependency injection is a technique that helps us achieve dependency 
 inversion by passing objects into code instead of creating them inside the code.
